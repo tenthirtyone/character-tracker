@@ -1,9 +1,11 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">  
-    <div class="panel panel-default">
-      <div class="panel-heading">Character Information</div>
-      <div class="panel-body">
-        Panel content
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Character Information</div>
+        <div class="panel-body">
+          Panel content
+        </div>
       </div>
     </div>
   </div>
@@ -14,6 +16,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">{{abilityScore.abbr}}</div>
         <div class="panel-body">
+          <label for="quantity">Score</label>
             <input type="number" name="quantity" min="1" max="20" value="{{abilityScore.score}}" ng-model="abilityScore.score">
         </div>
       </div>    
@@ -47,41 +50,22 @@
 
       </div>
       <div class="panel-body">
+        
         <div class="list-group">
   <div class="list-group-item">
     <div class="row-picture">
       <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
     </div>
     <div class="row-content">
-      <h4 class="list-group-item-heading">Tile with avatar</h4>
+      <h4 class="list-group-item-heading">Item Name</h4>
 
-      <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus</p>
+      <p class="list-group-item-text">Item Descriptions</p>
     </div>
   </div>
-  <div class="list-group-separator"></div>
-  <div class="list-group-item">
-    <div class="row-picture">
-      <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
-    </div>
-    <div class="row-content">
-      <h4 class="list-group-item-heading">Tile with another avatar</h4>
-
-      <p class="list-group-item-text">Maecenas sed diam eget risus varius blandit.</p>
-    </div>
-  </div>
-  <div class="list-group-separator"></div>
-  <div class="list-group-item">
-    <div class="row-action-primary checkbox">
-      <label><input type="checkbox"></label>
-    </div>
-    <div class="row-content">
-      <h4 class="list-group-item-heading">Tile with a checkbox in it</h4>
-
-      <p class="list-group-item-text">Donec id elit non mi risus varius blandit.</p>
-    </div>
-  </div>
-  <div class="list-group-separator"></div>
+  <div class="list-group-separator"></div> 
 </div>
+        
+        
       </div>
     </div>
   </div>

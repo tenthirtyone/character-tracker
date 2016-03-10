@@ -423,6 +423,8 @@
     vm.tabs = [
       {name: 'Inventory'},
       {name: 'Combat'},
+      {name: 'Saves/Checks'},
+      {name: 'Skills'},
       {name: 'Spells'},
       {name: 'Effects'}
     ]
