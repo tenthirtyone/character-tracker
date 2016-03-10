@@ -17,7 +17,7 @@
         config: {
           url: '/tracker',
           controller: 'TrackerController',
-          controllerAs: "login",
+          controllerAs: "character",
           templateUrl: 'views/tracker.template.html'
         }
       }

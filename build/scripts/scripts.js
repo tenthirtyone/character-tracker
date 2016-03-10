@@ -389,27 +389,22 @@
   
   function TrackerController(TrackerService) {
     var vm = this;
-    vm.credentials = {
-      username: '',
-      password: ''
-    };
-    vm.loginSuccess = true;
     
-    vm.login = getLogin;
-    vm.loginErrorMsg = getErrorMsg;
-    vm.isLoginError = isLoginError;
-
-    function getErrorMsg() {
-      return TrackerService.getErrorMsg();
+    vm.abilityScores = [
+      {name: 'Stregnth', abbr: 'STR', value: 2},
+      {name: 'Dexterity', abbr: 'DEX', value: 0},
+      {name: 'Constitution', abbr: 'CON', value: 0},
+      {name: 'Intelligence', abbr: 'INT', value: 0},
+      {name: 'Wisdom', abbr: 'WIS', value: 0},
+      {name: 'Charisma', abbr: 'CHA', value: 0}
+    ]
+    
+    init();
+    
+    function init() {
+      $.material.init();
     }
     
-    function getLogin(credentials) {
-      TrackerService.Login(credentials);
-    }
-    
-    function isLoginError() {
-      return TrackerService.isLoginError();
-    }
   }
 }());
 (function() {
@@ -431,7 +426,7 @@
         config: {
           url: '/tracker',
           controller: 'TrackerController',
-          controllerAs: "login",
+          controllerAs: "character",
           templateUrl: 'views/tracker.template.html'
         }
       }
@@ -557,6 +552,35 @@
   
   angular
     .module('character-tracker.directives')
+    .directive('ngEnterKey', ngEnterKey);
+
+  function ngEnterKey() {
+    var directive = {
+      restrict: 'A',
+      link: link
+    };
+
+    return directive;
+    
+    function link(scope, element, attrs) {
+      element.bind("keydown keypress", function (event) {
+        if(event.which === 13) {
+          event.preventDefault();
+          scope.$apply(function (){
+            scope.$eval(attrs.ngEnterKey);
+          });
+          
+        }
+      });
+    }
+  }
+
+}());
+(function() {
+  'use strict';
+  
+  angular
+    .module('character-tracker.directives')
     .directive('obEditable', obEditable);
 
   function obEditable() {
@@ -628,35 +652,6 @@
     
     
   }
-}());
-(function() {
-  'use strict';
-  
-  angular
-    .module('character-tracker.directives')
-    .directive('ngEnterKey', ngEnterKey);
-
-  function ngEnterKey() {
-    var directive = {
-      restrict: 'A',
-      link: link
-    };
-
-    return directive;
-    
-    function link(scope, element, attrs) {
-      element.bind("keydown keypress", function (event) {
-        if(event.which === 13) {
-          event.preventDefault();
-          scope.$apply(function (){
-            scope.$eval(attrs.ngEnterKey);
-          });
-          
-        }
-      });
-    }
-  }
-
 }());
 (function() {
   'use strict';
