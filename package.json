@@ -1,0 +1,33 @@
+{
+  "name": "angular_template",
+  "version": "1.0.0",
+  "description": "Starting point for Angular Front Ends",
+  "main": "app/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Gorale",
+  "license": "BSD3",
+  "devDependencies": {
+    "del": "~2.2.0",
+    "gulp": "~3.9.0",
+    "gulp-concat": "~2.6.0",
+    "gulp-html-replace": "^1.5.5",
+    "gulp-jshint": "^2.0.0",
+    "gulp-open": "~1.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "^1.5.1",
+    "jasmine-core": "~2.4.1",
+    "karma-jasmine": "~0.3.7",
+    "karma-chrome-launcher": "~0.2.2"
+  },
+  "dependencies": {
+    "jshint": "^2.9.1",
+    "angular-aria": "~1.5.0",
+    "angular-animate": "~1.5.0",
+    "angular": "~1.5.0",
+    "angular-material": "~1.0.5",
+    "angular-messages": "~1.5.0"
+  }
+}
