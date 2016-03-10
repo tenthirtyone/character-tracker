@@ -391,13 +391,47 @@
     var vm = this;
     
     vm.abilityScores = [
-      {name: 'Stregnth', abbr: 'STR', value: 2},
-      {name: 'Dexterity', abbr: 'DEX', value: 0},
-      {name: 'Constitution', abbr: 'CON', value: 0},
-      {name: 'Intelligence', abbr: 'INT', value: 0},
-      {name: 'Wisdom', abbr: 'WIS', value: 0},
-      {name: 'Charisma', abbr: 'CHA', value: 0}
+      {name: 'Stregnth', abbr: 'STR', score: 10},
+      {name: 'Dexterity', abbr: 'DEX', score: 10},
+      {name: 'Constitution', abbr: 'CON', score: 10},
+      {name: 'Intelligence', abbr: 'INT', score: 10},
+      {name: 'Wisdom', abbr: 'WIS', score: 10},
+      {name: 'Charisma', abbr: 'CHA', score: 10}
     ]
+    
+    vm.gear = [
+      {name: 'Left Earring'},
+      {name: 'Head'},
+      {name: 'Right Earring'},
+      {name: 'Shoulders'},
+      {name: 'Face'},
+      {name: 'Throat'},
+      {name: 'Cloak'},      
+      {name: 'Torso'},
+      {name: 'Hands'},
+      {name: 'Left Ring'},
+      {name: 'Belt'},
+      {name: 'Right Ring'},
+      {name: 'Legs'},
+      {name: 'Boots'},
+      {name: 'Charm'},
+      {name: 'Weapon 1'},
+      {name: 'Weapon 2'},
+      {name: 'Ranged Weapon'}
+    ];
+    
+    vm.tabs = [
+      {name: 'Inventory'},
+      {name: 'Combat'},
+      {name: 'Spells'},
+      {name: 'Effects'}
+    ]
+    
+    vm.currentTab = vm.tabs[0].name;
+    
+    vm.setTab = function(tabName) {
+      vm.currentTab = tabName;
+    }
     
     init();
     
@@ -552,35 +586,6 @@
   
   angular
     .module('character-tracker.directives')
-    .directive('ngEnterKey', ngEnterKey);
-
-  function ngEnterKey() {
-    var directive = {
-      restrict: 'A',
-      link: link
-    };
-
-    return directive;
-    
-    function link(scope, element, attrs) {
-      element.bind("keydown keypress", function (event) {
-        if(event.which === 13) {
-          event.preventDefault();
-          scope.$apply(function (){
-            scope.$eval(attrs.ngEnterKey);
-          });
-          
-        }
-      });
-    }
-  }
-
-}());
-(function() {
-  'use strict';
-  
-  angular
-    .module('character-tracker.directives')
     .directive('obEditable', obEditable);
 
   function obEditable() {
@@ -652,6 +657,35 @@
     
     
   }
+}());
+(function() {
+  'use strict';
+  
+  angular
+    .module('character-tracker.directives')
+    .directive('ngEnterKey', ngEnterKey);
+
+  function ngEnterKey() {
+    var directive = {
+      restrict: 'A',
+      link: link
+    };
+
+    return directive;
+    
+    function link(scope, element, attrs) {
+      element.bind("keydown keypress", function (event) {
+        if(event.which === 13) {
+          event.preventDefault();
+          scope.$apply(function (){
+            scope.$eval(attrs.ngEnterKey);
+          });
+          
+        }
+      });
+    }
+  }
+
 }());
 (function() {
   'use strict';

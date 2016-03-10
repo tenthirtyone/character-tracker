@@ -14,25 +14,74 @@
       <div class="panel panel-default">
         <div class="panel-heading">{{abilityScore.abbr}}</div>
         <div class="panel-body">
-            <input type="number" name="quantity" min="1" max="20" value={{abilityScore.score}} ng-model="abilityScore.score">
+            <input type="number" name="quantity" min="1" max="20" value="{{abilityScore.score}}" ng-model="abilityScore.score">
         </div>
       </div>    
     </div>
     </div>
 
   <div class="col-xs-12 col-sm-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">Ear1</div>
-      <div class="panel-body">
-        12
+    <div class="col-xs-12 col-md-4" ng-repeat="item in character.gear">
+      <div class="panel panel-default">
+        <div class="panel-heading">{{item.name}}</div>
+        <div class="panel-body">
+          Item
+        </div>
       </div>
     </div>
   </div>
   <div class="col-xs-12 col-sm-3">
     <div class="panel panel-default">
-      <div class="panel-heading">Dropdown</div>
+      <div class="panel-heading" style="padding: 0;">
+
+
+    <div class="btn-group" style="margin: 0; width: 100%;">
+      <a href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-block btn-raised dropdown-toggle" data-toggle="dropdown" >
+        {{character.currentTab}}
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li ng-repeat="tab in character.tabs"><a href="javascript:void(0)" ng-click="character.setTab(tab.name)">{{tab.name}}</a></li>
+      </ul>
+    </div>
+
+      </div>
       <div class="panel-body">
-        12
+        <div class="list-group">
+  <div class="list-group-item">
+    <div class="row-picture">
+      <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">Tile with avatar</h4>
+
+      <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-picture">
+      <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">Tile with another avatar</h4>
+
+      <p class="list-group-item-text">Maecenas sed diam eget risus varius blandit.</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary checkbox">
+      <label><input type="checkbox"></label>
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">Tile with a checkbox in it</h4>
+
+      <p class="list-group-item-text">Donec id elit non mi risus varius blandit.</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+</div>
       </div>
     </div>
   </div>
