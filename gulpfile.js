@@ -9,7 +9,7 @@ var gulp      = require('gulp'),
   scss        = require('gulp-sass'),
   uglify      = require('gulp-uglify');
 
-var buildDir = './build/';
+var buildDir = '/var/www/html/';
 
 var browser = os.platform() === 'linux' ? 'google-chrome' : (
 os.platform() === 'darwin' ? 'google chrome' : (
