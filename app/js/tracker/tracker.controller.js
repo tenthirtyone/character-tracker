@@ -19,25 +19,50 @@
     ]
     
     vm.gear = [
-      {name: 'Left Earring'},
-      {name: 'Head'},
-      {name: 'Right Earring'},
-      {name: 'Shoulders'},
-      {name: 'Face'},
-      {name: 'Throat'},
-      {name: 'Cloak'},      
-      {name: 'Torso'},
-      {name: 'Hands'},
-      {name: 'Left Ring'},
-      {name: 'Belt'},
-      {name: 'Right Ring'},
-      {name: 'Legs'},
-      {name: 'Boots'},
-      {name: 'Charm'},
-      {name: 'Weapon 1'},
-      {name: 'Weapon 2'},
-      {name: 'Ranged Weapon'}
+      {name: 'Left Earring', slot: 'ear1', equipped: {}},
+      {name: 'Head', slot: 'head', equipped: {}},
+      {name: 'Right Earring', slot: 'ear2', equipped: {}},
+      {name: 'Shoulders', slot: 'shoulders', equipped: {}},
+      {name: 'Face', slot: 'face', equipped: {}},
+      {name: 'Throat', slot: 'throat', equipped: {}},
+      {name: 'Cloak', slot: 'cloak', equipped: {}},      
+      {name: 'Torso', slot: 'torso', equipped: {}},
+      {name: 'Hands', slot: 'hands', equipped: {}},
+      {name: 'Left Ring', slot: 'ring1', equipped: {}},
+      {name: 'Belt', slot: 'belt', equipped: {}},
+      {name: 'Right Ring', slot: 'ring2', equipped: {}},
+      {name: 'Boots', slot: 'boots', equipped: {}},
+      {name: 'Legs', slot: 'legs', equipped: {}},
+      {name: 'Charm', slot: 'charm', equipped: {}},
+      {name: 'Weapon 1', slot: 'weapon1', equipped: {}},
+      {name: 'Weapon 2', slot: 'weapon2', equipped: {}},
+      {name: 'Ranged Weapon', slot: 'ranged', equipped: {}}
     ];
+    
+    vm.inventory = [
+      {name: 'Longsword +1', img: '', desc: 'Longsword with a faint magic aura', slot: ['weapon1', 'weapon2'], versatile: true},
+      {name: 'Tunic +1', img: '', desc: 'Tunic with a faint magic aura'}
+    ];
+    
+    vm.skills = [];
+    
+    vm.saves = [];
+    
+    vm.spells = [];
+    
+    vm.effects = [];
+        
+    vm.races = [
+      {name: 'Human'},
+      {name: 'Dwarf'},
+      {name: 'Half-Orc'},
+      {name: 'Tiefling'},
+      {name: 'Dragonkin'},
+      {name: 'Halfling'},
+      {name: 'Gnome'}
+    ];
+    
+    vm.race = {name: 'Race'};
     
     vm.tabs = [
       {name: 'Inventory'},
@@ -45,10 +70,15 @@
       {name: 'Saves/Checks'},
       {name: 'Skills'},
       {name: 'Spells'},
+      {name: 'Class/Level'},
       {name: 'Effects'}
     ]
     
     vm.currentTab = vm.tabs[0].name;
+    
+    vm.setRace = function(race) {
+      vm.race = race;
+    }
     
     vm.setTab = function(tabName) {
       vm.currentTab = tabName;

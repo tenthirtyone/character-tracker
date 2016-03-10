@@ -13,7 +13,8 @@
           navbardata: '='
       },
       controller: DirectiveController,
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      bindToController: true
     };
 
     return directive;
