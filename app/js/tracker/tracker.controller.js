@@ -40,8 +40,8 @@
     ];
     
     vm.inventory = [
-      {name: 'Longsword +1', img: '', desc: 'Longsword with a faint magic aura', slot: ['weapon1', 'weapon2'], versatile: true},
-      {name: 'Tunic +1', img: '', desc: 'Tunic with a faint magic aura'}
+      {name: 'Longsword +1', img: 'https://s-media-cache-ak0.pinimg.com/564x/db/5f/d8/db5fd8f1ee5a8f18b70e433f9b026595.jpg', desc: 'Longsword with a faint magic aura', slot: ['weapon1', 'weapon2'], versatile: true},
+      {name: 'Tunic +1', img: 'https://s-media-cache-ak0.pinimg.com/564x/a9/e8/3e/a9e83ebb9acc1c74128e0bcf50c57a8f.jpg', desc: 'Tunic with a faint magic aura', slot: ['torso']}
     ];
     
     vm.skills = [];
@@ -75,6 +75,17 @@
     ]
     
     vm.currentTab = vm.tabs[0].name;
+    
+    vm.equipItem = function (item, slot){
+      console.log(item);
+      console.log(slot);
+      
+      for (i = 0; i < vm.gear.length; i++) {
+        if (vm.gear[i].slot === slot) {
+          vm.gear[i].equipped = item;
+        }
+      }
+    }
     
     vm.setRace = function(race) {
       vm.race = race;
