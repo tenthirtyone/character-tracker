@@ -27,6 +27,11 @@
               controller: 'NavbarController',
               controllerAs: 'navbar'
             },
+            'stats@sheet': {
+              templateUrl: 'views/stats.template.html',
+              controller: 'StatsController',
+              controllerAs: 'stats'
+            },
             'abilityScores@sheet': {
               templateUrl: 'views/abilityScores.template.html',
               controller: 'AbilityScoresController',

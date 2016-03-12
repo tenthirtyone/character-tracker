@@ -1,1 +1,15 @@
-Skills
+<div class="btn-group" style="margin: 0; width: 100%;">
+  <div class="btn btn-default btn-block btn-raised" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;" ng-repeat="skill in skills.skills">
+    <i class="material-icons" ng-click="skill.proficient = !skill.proficient" ng-show="!skill.proficient">radio_button_unchecked</i>
+    <i class="material-icons" ng-click="skill.proficient = !skill.proficient" ng-show="skill.proficient">radio_button_checked</i>
+    {{skill.name}}
+    <button type="button" class="btn btn-fab btn-fab-mini pull-right">
+    <i class="material-icons">check</i>
+    </button>
+  </div>
+      
+</div>
+<div class="list-group" style="margin-bottom: 10px;">
+  <div class="list-group-item"  draggable="true">
+  </div>
+</div>
