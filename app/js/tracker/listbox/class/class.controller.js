@@ -4,18 +4,12 @@
   angular.module('character-tracker.charactersheet')
   .controller('ClassController', ClassController);
   
-  function ClassController() {
+  ClassController.$inject = ['ClassService']
+  
+  function ClassController(ClassService) {
     var vm = this;
       
-    vm.classes = [
-      {name: 'Fighter'},
-      {name: 'Cleric'},
-      {name: 'Druid'},
-      {name: 'Wizard'},
-      {name: 'Rogue'},
-      {name: 'Barbarian'},
-      {name: 'Ranger'}
-    ]
+    vm.classes = ClassService.getClasses();
     
     vm.characterClasses = [
       {name: '', level: 0}
