@@ -31,7 +31,7 @@
                {headers : {'Authorization': 'Basic ' + 
                 btoa(credentials.username + ':' + credentials.password)}})
       .then(function(res) {
-        $state.go('tracker');
+        $state.go('sheet');
         loginError = false;
         loginErrorMsg = '';
       }) 
