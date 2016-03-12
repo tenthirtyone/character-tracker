@@ -7,6 +7,9 @@
       <span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
+        <li>
+          <a href="javascript:void(0)" ng-click="gear.unequipItem(slot.equippedItem)">Unequip</a>
+        </li>
         <li ng-repeat="inventoryItem in gear.inventory | filterSlot : slot.slot" ng-click="gear.equipItem(inventoryItem, slot.slot)">
           <a href="javascript:void(0)">{{inventoryItem.name}}</a>
         </li>

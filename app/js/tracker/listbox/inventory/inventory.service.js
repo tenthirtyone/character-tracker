@@ -12,7 +12,7 @@
        slot: ['weapon1', 'weapon2', '2h'],
        equipable: true, 
        equipped: false, 
-       effects: [{abbr: 'Magic', value: 1}]
+       effects: [{abbr: 'Magic', value: 1, type: 'weapon'}]
       },
       {name: 'Tunic +1', 
        img: 'https://s-media-cache-ak0.pinimg.com/564x/a9/e8/3e/a9e83ebb9acc1c74128e0bcf50c57a8f.jpg', 
@@ -20,7 +20,7 @@
        slot: ['torso'],
        equipable: true, 
        equipped: false, 
-       effects: [{abbr: 'Magic', value: 1}]
+       effects: [{abbr: 'AC', value: 1, type: 'gear'}]
       },
       {name: 'Belt of Giant Strength', 
        img: 'http://www.canonfire.com/wiki/images/2/2e/Belt_of_the_Champion01.jpg', 
@@ -36,7 +36,7 @@
        slot: ['potion'], 
        equipable: false, 
        equipped: false, 
-       effects: [{abbr: 'HEAL', dice: 1, sides: 10}]}
+       effects: [{abbr: 'HEAL', dice: 1, sides: 10, type: 'potion'}]}
     ];
     
     return {

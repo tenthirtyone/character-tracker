@@ -20,7 +20,7 @@
       {name: 'Saves/Checks', tabName: 'saves'},
       {name: 'Skills', tabName: 'skills'},
       {name: 'Spells', tabName: 'spells'},
-      {name: 'Class/Level', tabName: 'class'},
+      {name: 'Race/Class/Level', tabName: 'class'},
       {name: 'Effects', tabName: 'effects'}
     ]
     
