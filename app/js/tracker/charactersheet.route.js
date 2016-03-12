@@ -55,7 +55,7 @@
             'class@sheet': {
               templateUrl: 'views/class.template.html',
               controller: 'ClassController',
-              controllerAs: 'class'
+              controllerAs: 'classes'
             },
             'combat@sheet': {
               templateUrl: 'views/combat.template.html',

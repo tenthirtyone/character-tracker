@@ -6,7 +6,7 @@
   
   function SavesController() {
     var vm = this;
-      
+    
     init();
     
     function init() {

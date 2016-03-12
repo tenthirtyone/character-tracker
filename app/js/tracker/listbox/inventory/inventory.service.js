@@ -6,7 +6,7 @@
   
   function InventoryService() {
     var items = [
-      {name: 'Longsword +1', 
+      {name: 'Longsword +2', 
        img: 'https://s-media-cache-ak0.pinimg.com/564x/db/5f/d8/db5fd8f1ee5a8f18b70e433f9b026595.jpg', 
        desc: 'Longsword with a faint magic aura', 
        slot: ['weapon1', 'weapon2', '2h'],
@@ -28,12 +28,12 @@
        slot: ['belt'], 
        equipable: true, 
        equipped: false, 
-       effects: [{abbr: 'STR', value: 1}]
+       effects: [{abbr: 'STR', value: 1, type: 'abilityscore'}]
       },
       {name: 'Potion of Healing', 
        img: 'https://s-media-cache-ak0.pinimg.com/236x/43/51/26/4351264b1d04301f59a12f6e167a9f15.jpg', 
        desc: '+1 STR', 
-       slot: ['belt'], 
+       slot: ['potion'], 
        equipable: false, 
        equipped: false, 
        effects: [{abbr: 'HEAL', dice: 1, sides: 10}]}

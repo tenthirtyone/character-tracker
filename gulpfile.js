@@ -7,7 +7,9 @@ var gulp      = require('gulp'),
   os          = require('os'),
   rename      = require('gulp-rename'),
   scss        = require('gulp-sass'),
+  livereload  = require('gulp-livereload'),
   uglify      = require('gulp-uglify');
+
 
 var buildDir = '/var/www/html/';
 
@@ -77,14 +79,17 @@ gulp.task('scss', ['clean'], function() {
     .pipe(scss())
     .pipe(concat('styles.css'))
     .pipe(gulp.dest(buildDir + 'styles/'))
+    .pipe(livereload())
   
   gulp.src(vendorCSS)
     .pipe(concat('vendor-styles.css'))
     .pipe(gulp.dest(buildDir + 'styles/'))
+    .pipe(livereload())
   
   gulp.src(vendorCSS)
     .pipe(concat('vendor-styles.css'))
     .pipe(gulp.dest(buildDir + 'styles/'))
+    .pipe(livereload());
 })
 
 gulp.task('scripts', ['clean'], function(){
@@ -94,13 +99,15 @@ gulp.task('scripts', ['clean'], function(){
   ])
     .pipe(concat('scripts.js'))
     //.pipe(uglify())
-    .pipe(gulp.dest(buildDir + 'scripts/'));
+    .pipe(gulp.dest(buildDir + 'scripts/'))
+    .pipe(livereload());
 })
 
 gulp.task('views', ['clean'], function(){
   return gulp.src('app/**/*.html')
     .pipe(rename({dirname: ''}))
-    .pipe(gulp.dest(buildDir + 'views'));		
+    .pipe(gulp.dest(buildDir + 'views'))
+    .pipe(livereload());		
     
 })
 
@@ -111,3 +118,8 @@ gulp.task('vendor', ['clean'], function(){
       .pipe(gulp.dest(buildDir + 'scripts/'));
 })
 
+gulp.task('watch', function() {
+    gulp.watch('app/**/*.js', ['default']);
+    gulp.watch('app/**/*.scss', ['default']);
+    gulp.watch('app/**/*.html', ['default']);
+});
