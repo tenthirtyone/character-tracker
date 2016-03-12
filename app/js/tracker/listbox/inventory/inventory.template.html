@@ -1,0 +1,12 @@
+<div class="list-group" style="margin-bottom: 10px;">  
+  <div class="list-group-item" ng-repeat="item in inventory.items" draggable="true">
+    <div class="row-picture">
+      <img class="circle" ng-src="{{item.img}}" alt="icon" draggable="false">
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">{{item.name}}</h4>
+      <p class="list-group-item-text">{{item.desc}}</p>
+    </div>
+    <div class="list-group-separator"></div>
+  </div>
+</div>

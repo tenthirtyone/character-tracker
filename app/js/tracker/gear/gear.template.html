@@ -1,0 +1,23 @@
+<div class="col-xs-12 col-sm-4 col-md-4" ng-repeat="slot in gear.gearSlots" style="padding: 0px 5px 5px 0px;">
+  <div class="panel panel-default ct-panel">
+    
+    <div class="btn-group" style="margin: 0; width: 100%;">
+      <a href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-block btn-raised dropdown-toggle" data-toggle="dropdown" style="background-color: #fff;">
+      {{slot.equippedItem.name || slot.name}}
+      <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li ng-repeat="inventoryItem in gear.inventory | filterSlot : slot.slot" ng-click="gear.equipItem(inventoryItem, slot.slot)">
+          <a href="javascript:void(0)">{{inventoryItem.name}}</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="panel-body ct-panel-body">
+      <div>
+        <img class="gear-picture" ng-src="{{slot.equippedItem.img || '//:0'}}" alt="icon">
+      </div>
+      
+    </div>
+  </div>
+</div>
