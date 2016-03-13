@@ -4,7 +4,9 @@
   angular.module('character-tracker.charactersheet')
   .service('AbilityScoresService', AbilityScoresService);
   
-  function AbilityScoresService() {
+  AbilityScoresService.$inject = ['EffectsService']
+  
+  function AbilityScoresService(EffectsService) {
  
     var abilityScores = [
       {name: 'Strength', abbr: 'STR', score: 10},
@@ -17,6 +19,10 @@
     
     return {
       getAbilityScores: getAbilityScores
+    }
+    
+    function mapEffects() {
+      
     }
     
     function getAbilityScores() {

@@ -15,12 +15,12 @@
     
 
     vm.tabs = [
+      {name: 'Character Info', tabName: 'class'},
       {name: 'Inventory', tabName: 'inventory'},
       {name: 'Combat', tabName: 'combat'},
       {name: 'Saves/Checks', tabName: 'saves'},
       {name: 'Skills', tabName: 'skills'},
       {name: 'Spells', tabName: 'spells'},
-      {name: 'Race/Class/Level', tabName: 'class'},
       {name: 'Effects', tabName: 'effects'}
     ]
     

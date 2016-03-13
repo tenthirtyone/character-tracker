@@ -4,8 +4,34 @@
   angular.module('character-tracker.charactersheet')
   .service('EffectsService', EffectsService);
   
-  function EffectsService() {
+  EffectsService.$inject = ['GearService', 'RacesService']
+  
+  function EffectsService(GearService, RacesService) {
  
+    var racialBonuses = function() {
+      return RacesService.getEffects();
+    }
+    
+    var gearBonuses = function() {
+      return GearService.getEffects();
+    }
+    
+    var spellBonuses = function() {
+      
+    }
+    
+    var miscBonuses = function() {
+      
+    }
+    
+    var classBonuses = function() {
+      
+    }
+    
+    var gearBonuses = function() {
+      return GearService.getEffects();
+    }
+    
     var effectTypes = [
       'abilityscore',
       'racial',
@@ -18,21 +44,29 @@
     ]
     
     var effects = [
-      {source: 'Belt of Giant Strength +1', 
-       type: 'abilityscore', 
-       img: 'http://www.canonfire.com/wiki/images/2/2e/Belt_of_the_Champion01.jpg', 
-       effects: [{
-         abbr: 'STR', 
-         value: 1}
-       ]}
-    ];
+      {source: 'Human', effects: [{abbr: 'STR', value: 1}]}
+    ]
     
     return {
-      getEffects: getEffects
+      getEffects: getEffects,
+      getGearEffects: getGearEffects,
+      getRacialEffects: getRacialEffects
+    }
+    
+    function getGearEffects() {
+      return gearBonuses();
     }
     
     function getEffects() {
       return effects;
+    }
+    
+    function getRacialEffects() {
+      return racialBonuses();
+    }
+    
+    function getSpellEffects() {
+      return spellBonuses();
     }
     
   }

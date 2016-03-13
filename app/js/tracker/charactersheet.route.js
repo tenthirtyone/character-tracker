@@ -47,15 +47,15 @@
               controller: 'ListboxController',
               controllerAs: 'listbox'
             },
+            'class@sheet': {
+              templateUrl: 'views/characterinfo.template.html',
+              controller: 'CharacterInfoController',
+              controllerAs: 'characterInfo'
+            },
             'inventory@sheet': {
               templateUrl: 'views/inventory.template.html',
               controller: 'InventoryController',
               controllerAs: 'inventory'
-            },
-            'class@sheet': {
-              templateUrl: 'views/class.template.html',
-              controller: 'ClassController',
-              controllerAs: 'classes'
             },
             'combat@sheet': {
               templateUrl: 'views/combat.template.html',

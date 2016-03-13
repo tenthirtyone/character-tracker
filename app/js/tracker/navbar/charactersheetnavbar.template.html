@@ -12,7 +12,10 @@
       <ul class="nav navbar-nav">
         <li>
           
-          <h2>Traf the level 3 Dwarf Fighter</h2>
+          <h2>
+            <span ng-show="navbar.characterName()" style="margin-left: 0px;">{{navbar.characterName()}}</span> 
+            <span ng-show="navbar.characterRace().name" style="margin-left: 0px;">the {{navbar.characterRace().name}}</span> 
+            <span ng-show="navbar.characterClasses()" ng-repeat="class in navbar.characterClasses()" style="margin-left: 0px;">{{class.name}}({{class.level}}) </span></h2>
         </li>
 
       </ul>

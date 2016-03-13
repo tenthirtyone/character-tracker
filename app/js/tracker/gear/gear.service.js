@@ -29,7 +29,22 @@
       
     
     return {
+      getEffects: getEffects,
       getGearSlots: getGearSlots
+    }
+    
+    function getEffects() {
+      var effects = [];
+      for (i = 0; i < gearSlots.length; i++) {
+        if(gearSlots[i].equippedItem.effects) {
+          for (var key in gearSlots[i].equippedItem.effects) {
+            if (gearSlots[i].equippedItem.effects.hasOwnProperty(key)) {
+              effects.push({source: gearSlots[i].equippedItem.name, effects: gearSlots[i].equippedItem.effects[key]});
+            }
+          }
+        }
+      }
+      return effects;
     }
     
     function getGearSlots() {

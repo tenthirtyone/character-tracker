@@ -1,0 +1,42 @@
+<div class="btn-group" style="margin: 0; width: 100%;">
+  <div class="btn btn-default btn-block btn-raised" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;" >
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Character Name" ng-model="characterInfo.characterName" ng-change="characterInfo.setCharacterName(characterInfo.characterName)">
+    </div>
+  </div>
+      
+</div>
+
+<div class="btn-group" style="margin: 0; width: 100%;">
+  <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;" ng-click="characterInfo.showDetail = !characterInfo.showDetail" >
+  {{characterInfo.characterRace.name || "Race" }}
+    <span class="pull-right">
+      <span ng-repeat="effect in characterInfo.characterRace.effects">{{effect.abbr}}: {{effect.value}};</span>
+    </span>
+  <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li ng-repeat="race in characterInfo.races" ng-click="characterInfo.setRace(race)"><a href="javascript:void(0)">{{race.name}}</a></li>
+  </ul>
+</div>
+
+<div class="btn-group" style="margin: 0; width: 100%;">
+  <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;" ng-click="characterInfo.showDetail = !characterInfo.showDetail" >
+  Add new class
+  <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li ng-repeat="class in characterInfo.classes" ng-click="characterInfo.addClass(class)"><a href="javascript:void(0)">{{class.name}}</a></li>
+  </ul>
+</div>
+
+<div class="btn-group" style="margin: 0; width: 100%;">
+  <div class="btn btn-default btn-block btn-raised" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;" ng-repeat="class in characterInfo.characterClasses()">
+    {{class.name}}
+    <span class="pull-right">
+      <span class="badge" ng-click="characterInfo.removeClass(class)">-</span>
+        <input type="text" disabled style="width: 2em;" value="{{class.level}}"> 
+      <span class="badge" ng-click="characterInfo.addClass(class)">+</span>
+    </span>
+  </div>
+</div>

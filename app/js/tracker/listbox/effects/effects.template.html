@@ -1,12 +1,19 @@
-<div class="list-group" style="margin-bottom: 10px;">  
-  <div class="list-group-item" ng-repeat="effect in effects.effects" draggable="true">
-    <div class="row-picture">
-      <img class="circle" ng-src="{{effect.img}}" alt="icon" draggable="false">
-    </div>
-    <div class="row-content">
-      <h4 class="list-group-item-heading">{{effect.source}}</h4>
-      <p class="list-group-item-text">{{effect.effects[0].abbr}} {{effect.effects[0].value}}</p>
-    </div>
-    <div class="list-group-separator"></div>
+<div class="list-group" style="margin-bottom: 10px;"> 
+  <div class="btn-group" style="margin: 0; width: 100%;">
+    <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;">
+    {{effects.racialEffects().source}}
+      <span class="pull-right">
+        <span ng-repeat="effect in effects.racialEffects().effects">{{effect.abbr}}: {{effect.value}};</span>
+      </span>
+    </a>
   </div>
+  
+  <div class="btn-group" style="margin: 0; width: 100%;" ng-repeat="eff in effects.gearEffects()">
+    <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;">
+  {{eff.source}}      
+    </a>
+  </div>  
+  
+  
+  
 </div>

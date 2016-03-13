@@ -11,7 +11,17 @@
       
     init();
     
-    vm.effects = EffectsService.getEffects();
+    vm.effects = function() {
+      return EffectsService.getEffects();
+    }
+    
+    vm.gearEffects = function() {
+      return EffectsService.getGearEffects();
+    }
+    
+    vm.racialEffects = function() {
+      return EffectsService.getRacialEffects();
+    }
     
     function init() {
       $.material.init();
