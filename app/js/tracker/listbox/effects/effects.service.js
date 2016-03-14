@@ -4,7 +4,9 @@
   angular.module('character-tracker.charactersheet')
   .service('EffectsService', EffectsService);
   
-  function EffectsService() {
+  EffectsService.$inject = ['RacesService', 'GearService']
+  
+  function EffectsService(RacesService, GearService) {
 
     var effectTypes = [
       'abilityscore',
@@ -28,12 +30,18 @@
     
     return {
       getSpellBonusForStat: getSpellBonusForStat, 
+      getClassEffects: getClassEffects, 
       getMiscBonusForStat: getMiscBonusForStat, 
+      getGearEffects: getGearEffects,
+      getRacialEffects: getRacialEffects,
       getSpellEffects: getSpellEffects,
       getMiscEffects: getMiscEffects
     }
   
-       
+    function getClassEffects() {
+      return [];
+    }   
+    
     function getMiscBonusForStat(stat) {
       var tempVal = 0;
       if (miscEffects.effects) {
@@ -48,6 +56,9 @@
       return tempVal;
     }
     
+    function getRacialEffects() {
+      return RacesService.getEffects();
+    }
     
     function getSpellBonusForStat(stat) {
       var tempVal = 0;
@@ -61,6 +72,10 @@
         }
       }
       return tempVal;
+    }
+    
+    function getGearEffects() {
+      return GearService.getGearSlots();
     }
     
     function getSpellEffects() {

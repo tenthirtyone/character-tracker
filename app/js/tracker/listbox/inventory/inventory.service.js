@@ -23,13 +23,13 @@
        equipped: false, 
        effects: false
       },
-      {name: 'Tunic +1', 
+      {name: 'Plate +1', 
        img: 'https://s-media-cache-ak0.pinimg.com/564x/a9/e8/3e/a9e83ebb9acc1c74128e0bcf50c57a8f.jpg', 
        desc: 'Tunic with a faint magic aura', 
        slot: ['torso'],
        equipable: true, 
        equipped: false, 
-       effects: [{abbr: 'AC', value: 1, type: 'gear'}]
+       effects: [{abbr: 'Armor AC', value: 8, type: 'gear'}, {abbr: 'Magic AC', value: 1, type: 'magic'}]
       },
       {name: 'Belt of Giant Strength', 
        img: 'http://www.canonfire.com/wiki/images/2/2e/Belt_of_the_Champion01.jpg', 
