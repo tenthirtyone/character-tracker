@@ -9,43 +9,19 @@
   function CharacterSheetController(CharacterSheetService) {
     var vm = this;
     
-    vm.abilityScores = [
-      {name: 'Strength', abbr: 'STR', score: 10},
-      {name: 'Dexterity', abbr: 'DEX', score: 10},
-      {name: 'Constitution', abbr: 'CON', score: 10},
-      {name: 'Intelligence', abbr: 'INT', score: 10},
-      {name: 'Wisdom', abbr: 'WIS', score: 10},
-      {name: 'Charisma', abbr: 'CHA', score: 10}
-    ]
+    init();
     
-    vm.skills = [];
-    
-    vm.saves = [];
-    
-    vm.spells = [];
-    
-    vm.effects = [];
-        
-    vm.races = [
-      {name: 'Human'},
-      {name: 'Dwarf'},
-      {name: 'Half-Orc'},
-      {name: 'Tiefling'},
-      {name: 'Dragonkin'},
-      {name: 'Halfling'},
-      {name: 'Gnome'}
-    ];
-    
-    vm.race = {name: 'Race'};
-    
-    
-    vm.setRace = function(race) {
-      vm.race = race;
+    vm.showStats = function() {
+      return CharacterSheetService.showStats();
     }
     
-
+    vm.showGear = function() {
+      return CharacterSheetService.showGear();
+    }
     
-    init();
+    vm.showBox = function() {
+      return CharacterSheetService.showBox();
+    }
     
     function init() {
       $.material.init();

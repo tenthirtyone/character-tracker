@@ -38,7 +38,6 @@
     } 
        
     function getModForStat(stat) {
-      console.log(getTotalForStat(stat)/2 - 5);
       return getTotalForStat(stat)/2 - 5;
     }
     

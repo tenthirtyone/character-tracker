@@ -2,14 +2,14 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-md-2">
-      <div ui-view="stats"></div>
-      <div ui-view="abilityScores"></div> 
+      <div ui-view="stats" ng-show="character.showStats()"></div>
+      <div ui-view="abilityScores" ng-show="character.showStats()"></div> 
     </div>
     <div class="col-xs-12 col-md-6 ct-gear-column">
-      <div ui-view="gear"></div>
+      <div ui-view="gear" ng-show="character.showGear()"></div>
     </div>
     <div class="col-xs-12 col-md-4 ct-gear-column">
-      <div ui-view="listbox"></div>
+      <div ui-view="listbox"  ng-show="character.showBox()"></div>
     </div>
   </div>
 </div>

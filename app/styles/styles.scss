@@ -11,3 +11,13 @@ body {
 .pagewrapper {
   padding-bottom: 70px;
 }
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+
+.combat-add {
+  cursor: pointer;
+}

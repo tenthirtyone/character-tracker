@@ -15,6 +15,10 @@
       return EffectsService.getSpellEffects();
     }
     
+    vm.miscEffects = function() {
+      return EffectsService.getMiscEffects();
+    }
+    
     vm.gearEffects = function() {
       return GearService.getGearSlots();
     }

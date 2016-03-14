@@ -48,6 +48,10 @@
        effects: [{abbr: 'HEAL', dice: 1, sides: 10, type: 'potion'}]}
     ];
     
+    var armors = [
+      
+    ];
+    
     return {
       equipItem: equipItem,
       getItems: getItems,

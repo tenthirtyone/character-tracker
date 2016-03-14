@@ -29,7 +29,8 @@
     return {
       getSpellBonusForStat: getSpellBonusForStat, 
       getMiscBonusForStat: getMiscBonusForStat, 
-      getSpellEffects: getSpellEffects
+      getSpellEffects: getSpellEffects,
+      getMiscEffects: getMiscEffects
     }
   
        
@@ -64,6 +65,9 @@
     
     function getSpellEffects() {
       return spellEffects;
+    }
+    function getMiscEffects() {
+      return miscEffects;
     }
   }
 })

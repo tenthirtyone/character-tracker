@@ -4,9 +4,9 @@
   angular.module('character-tracker.charactersheet')
   .controller('NavbarController', NavbarController);
   
-  NavbarController.$inject = ['CharacterInfoService', 'ClassService', 'RacesService'];
+  NavbarController.$inject = ['CharacterInfoService', 'ClassService', 'RacesService', 'CharacterSheetService'];
   
-  function NavbarController(CharacterInfoService, ClassService, RacesService) {
+  function NavbarController(CharacterInfoService, ClassService, RacesService, CharacterSheetService) {
     var vm = this;
     
     vm.characterName = function() {
@@ -19,6 +19,21 @@
     
     vm.characterClasses = function() {
       return ClassService.getCharacterClasses();
+    }
+    
+    vm.toggleStats = function() {
+      console.log('toggled');
+      CharacterSheetService.toggleStats();
+    }
+    
+    vm.toggleGear = function() {
+      console.log('toggled');
+      CharacterSheetService.toggleGear();
+    }
+    
+    vm.toggleBox = function() {
+      console.log('toggled');
+      CharacterSheetService.toggleBox();
     }
     
     init();

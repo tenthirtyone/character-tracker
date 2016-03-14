@@ -30,9 +30,6 @@
     </a>
   </div>   
   
-  
-  
-  
   <div class="btn-group" style="margin: 0; width: 100%;">
     <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: center;">
       Spell Effects
@@ -40,6 +37,21 @@
   </div>    
   
     <div class="btn-group" style="margin: 0; width: 100%;" ng-repeat='eff in effects.spellEffects().effects'>
+    <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;">
+    {{eff.source}}
+      <span class="pull-right">
+        <span ng-repeat="e in eff.effects">{{e.abbr}}: {{e.value}}; </span>
+      </span>
+    </a>
+  </div>  
+  
+<div class="btn-group" style="margin: 0; width: 100%;">
+    <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: center;">
+      Misc Effects
+    </a>
+  </div>    
+  
+    <div class="btn-group" style="margin: 0; width: 100%;" ng-repeat='eff in effects.miscEffects().effects'>
     <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;">
     {{eff.source}}
       <span class="pull-right">
