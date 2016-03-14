@@ -30,6 +30,18 @@
       CharacterInfoService.setCharacterName(newName);
     }
     
+    vm.getProgression = function(className, level) {
+      var levels =[];
+      for (var key in ClassService.getClasses()) {
+        if (ClassService.getClasses()[key].name === className) {
+          for (i=0; i<level; i++) {
+            levels.push(ClassService.getClasses()[key].progression[i]);
+          }
+        }
+      }
+      return levels;
+    }
+    
     vm.setRace = function(race) {
       vm.characterRace = race;
       RacesService.setCharacterRace(race);

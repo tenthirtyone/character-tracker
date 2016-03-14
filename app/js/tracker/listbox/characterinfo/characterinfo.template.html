@@ -32,11 +32,16 @@
 
 <div class="btn-group" style="margin: 0; width: 100%;">
   <div class="btn btn-default btn-block btn-raised" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;" ng-repeat="class in characterInfo.characterClasses()">
-    {{class.name}}
-    <span class="pull-right">
-      <span class="badge" ng-click="characterInfo.removeClass(class)">-</span>
-        <input type="text" disabled style="width: 2em;" value="{{class.level}}"> 
-      <span class="badge" ng-click="characterInfo.addClass(class)">+</span>
-    </span>
+    <div>
+      {{class.name}}
+      <span class="pull-right">
+        <span class="badge" ng-click="characterInfo.removeClass(class)">-</span>
+          <input type="text" disabled style="width: 2em;" value="{{class.level}}"> 
+        <span class="badge" ng-click="characterInfo.addClass(class)">+</span>
+      </span>
+    </div>
+    <div ng-repeat="level in characterInfo.getProgression(class.name, class.level)">
+      {{level.level}}. <span ng-repeat="feature in level.features">{{feature}}; </span>
+    </div>
   </div>
 </div>
