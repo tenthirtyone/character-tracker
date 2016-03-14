@@ -5,7 +5,7 @@
   .service('RacesService', RacesService);
   
   function RacesService() {
-    var characterRace = {};
+    var characterRace;
     
     var races = [
      {name: 'Human', 
@@ -67,6 +67,7 @@
     return {
       getEffects: getEffects,
       getRaces: getRaces,
+      getBonusForStat: getBonusForStat,
       getCharacterRace: getCharacterRace,
       setCharacterRace: setCharacterRace
     }
@@ -75,17 +76,32 @@
       return races;
     }
     
+    function getBonusForStat(stat) {
+      var tempVal = 0;
+      if (characterRace) {
+        for(i=0; i< characterRace.effects.length; i++) {
+          if (characterRace.effects[i].abbr === stat) {
+            tempVal+= characterRace.effects[i].value;
+          }
+        }
+      }
+      return tempVal;
+    }
+    
     function getCharacterRace() {
       return characterRace;
     }
     
     function getEffects() {
-      return {source: characterRace.name, effects: characterRace.effects};
+      if (characterRace) {
+        return {source: characterRace.name, effects: characterRace.effects};
+      } else {
+        return {}
+      }
     }
     
     function setCharacterRace(race) {
       characterRace = race;
-      console.log('setRace')
     }
    
   }

@@ -11,12 +11,11 @@
       
     init();
     
-    vm.effects = function() {
-      return EffectsService.getEffects();
+    vm.spellEffects = function() {
+      return EffectsService.getSpellEffects();
     }
     
     vm.gearEffects = function() {
-      console.log(GearService.getEffects())
       return GearService.getGearSlots();
     }
     

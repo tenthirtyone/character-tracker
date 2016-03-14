@@ -607,8 +607,7 @@
     return directive;
     
     function link(scope, element, attrs) {
-      console.log(element);
-      console.log(attrs);
+
     }
   }
 

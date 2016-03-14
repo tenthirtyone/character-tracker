@@ -30,19 +30,35 @@
     
     return {
       getEffects: getEffects,
+      getBonusForStat: getBonusForStat,
       getGearSlots: getGearSlots
     }
     
     function getEffects() {
-      var temp = [];
-      for (i = 0; i < gearSlots.length; i++) {
-        if(gearSlots[i].equippedItem.effects) {
-          temp.push({source: gearSlots[i].equippedItem.name, effects: gearSlots[i].equippedItem.effects });
+      var tmpArr = [];
+      for (var item in gearSlots) {
+        if (gearSlots[item].equippedItem.effects) {
+          tmpArr.push({source: gearSlots[item].equippedItem.name, effects: gearSlots[item].equippedItem.effects})
         }
       }
+   
       //return [{source: 'test', effects: [{abbr: 'STR', value: 0}]}];
-      effects = {type: 'gear', effects: temp};
+      effects = {type: 'gear', effects: tmpArr};
       return effects;
+    }
+    
+    function getBonusForStat(stat) {
+      var tmpVal=0;
+      for (var item in gearSlots) {
+        if (gearSlots[item].equippedItem.effects) {
+          for (var effect in gearSlots[item].equippedItem.effects) {
+            if(gearSlots[item].equippedItem.effects[effect].abbr === stat) {
+              tmpVal+=gearSlots[item].equippedItem.effects[effect].value;
+            }
+          }
+        }
+      }
+      return tmpVal;
     }
     
     function getGearSlots() {

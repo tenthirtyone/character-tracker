@@ -3,9 +3,9 @@
     <div class="panel-heading ct-panel-heading">
       <div class="btn-group" style="margin: 0; width: 100%;">
         <a class="btn btn-default btn-block btn-raised" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;" ng-click="abilityScore.showDetail = !abilityScore.showDetail">
-        {{abilityScore.abbr}} 
-        <input type="text" class="pull-right" value="{{(abilityScore.score + abilityScore.racialBonus + abilityScore.gearBonus + abilityScore.spellBonus + abilityScore.miscBonus + abilityScore.classBonus) / 2 - 5.1 | number : 0}}" disabled style="width: 2em;" title="Total"> 
-        <input type="text" class="pull-right" value="{{(abilityScore.score + abilityScore.racialBonus + abilityScore.gearBonus + abilityScore.spellBonus + abilityScore.miscBonus + abilityScore.classBonus) | number : 0}}" disabled style="width: 2em;" title="Total"> 
+        {{abilityScore.abbr}}
+        <input type="text" class="pull-right" value="{{abilityScores.getModForStat(abilityScore.abbr) | number : 0}}" disabled style="width: 2em;" title="Total"> 
+        <input type="text" class="pull-right" value="{{abilityScores.getTotalForStat(abilityScore.abbr) | number : 0}}" disabled style="width: 2em;" title="Total"> 
         <span class="caret"></span>
         </a>
       </div>
@@ -24,7 +24,7 @@
  Racial
         </div>
         <div class="col-xs-6">
-          <input type="text" value="{{abilityScore.racialBonus}}" ng-model="abilityScore.racialBonus" disabled style="width: 2em;" title="Racial Bonus">  
+          <input type="text" value="{{abilityScores.getRacialBonus(abilityScore.abbr)}}" disabled style="width: 2em;" title="Racial Bonus">  
         </div>
       </div>
       <div class="row">
@@ -32,7 +32,7 @@
  Gear
         </div>
         <div class="col-xs-6">
-          <input type="text" value="{{abilityScore.gearBonus}}" ng-model="abilityScore.gearBonus" disabled style="width: 2em;" title="Gear Bonus"> 
+          <input type="text" value="{{abilityScores.getGearBonus(abilityScore.abbr)}}" disabled style="width: 2em;" title="Gear Bonus"> 
         </div>
       </div>
       <div class="row">
@@ -40,7 +40,7 @@
  Spells
         </div>
         <div class="col-xs-6">
-          <input type="text" value="{{abilityScore.spellBonus}}" ng-model="abilityScore.spellBonus" disabled style="width: 2em;" title="Spell Bonus"> 
+          <input type="text" value="{{abilityScores.getSpellBonus(abilityScore.abbr)}}" disabled style="width: 2em;" title="Spell Bonus"> 
         </div>
       </div>
       <div class="row">
@@ -48,7 +48,7 @@
 Misc
         </div>
         <div class="col-xs-6">
-          <input type="text" value="{{abilityScore.miscBonus}}" ng-model="abilityScore.miscBonus" disabled style="width: 2em;" title="Misc Bonus"> 
+          <input type="text" value="{{abilityScores.getMiscBonus(abilityScore.abbr)}}" disabled style="width: 2em;" title="Misc Bonus"> 
         </div>
       </div>
       <div class="row">
@@ -56,7 +56,7 @@ Misc
 Class
         </div>
         <div class="col-xs-6">
-          <input type="text" value="{{abilityScore.classBonus}}" ng-model="abilityScore.classBonus" disabled style="width: 2em;" title="Class Bonus">
+          <input type="text" value="{{abilityScores.getClassBonus(abilityScore.abbr)}}" disabled style="width: 2em;" title="Class Bonus">
         </div>
       </div>
     </div>

@@ -31,7 +31,6 @@
     }
     
     vm.setRace = function(race) {
-      console.log(race);
       vm.characterRace = race;
       RacesService.setCharacterRace(race);
     }

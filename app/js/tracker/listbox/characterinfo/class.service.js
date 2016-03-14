@@ -21,6 +21,7 @@
     return {
       addClass: addClass,
       getCharacterClasses: getCharacterClasses,
+      getBonusForStat: getBonusForStat,
       getClasses: getClasses,
       removeClass: removeClass
     }
@@ -53,6 +54,10 @@
     
     function getCharacterClasses() {
       return characterClasses;
+    }
+    
+    function getBonusForStat() {
+      return 0;
     }
     
     function getClasses() {
