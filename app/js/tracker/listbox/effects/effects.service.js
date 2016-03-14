@@ -4,34 +4,8 @@
   angular.module('character-tracker.charactersheet')
   .service('EffectsService', EffectsService);
   
-  EffectsService.$inject = ['GearService', 'RacesService']
-  
-  function EffectsService(GearService, RacesService) {
- 
-    var racialBonuses = function() {
-      return RacesService.getEffects();
-    }
-    
-    var gearBonuses = function() {
-      return GearService.getEffects();
-    }
-    
-    var spellBonuses = function() {
-      
-    }
-    
-    var miscBonuses = function() {
-      
-    }
-    
-    var classBonuses = function() {
-      
-    }
-    
-    var gearBonuses = function() {
-      return GearService.getEffects();
-    }
-    
+  function EffectsService() {
+
     var effectTypes = [
       'abilityscore',
       'racial',
@@ -43,31 +17,17 @@
       'weapon'
     ]
     
-    var effects = [
-      {source: 'Human', effects: [{abbr: 'STR', value: 1}]}
-    ]
+    var effects = {type: 'spell', effects: [
+      {source: 'Bull Strength', effects: [{abbr: 'STR', value: 1}]},
+      {source: 'Owl\'s Wisdom', effects: [{abbr: 'WIS', value: 1}, {abbr: 'INT', value: 1}]}
+      ]}
     
     return {
-      getEffects: getEffects,
-      getGearEffects: getGearEffects,
-      getRacialEffects: getRacialEffects
-    }
-    
-    function getGearEffects() {
-      return gearBonuses();
+      getEffects: getEffects
     }
     
     function getEffects() {
       return effects;
     }
-    
-    function getRacialEffects() {
-      return racialBonuses();
-    }
-    
-    function getSpellEffects() {
-      return spellBonuses();
-    }
-    
   }
 })

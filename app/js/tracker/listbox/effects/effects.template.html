@@ -1,3 +1,10 @@
+
+  <div class="btn-group" style="margin: 0; width: 100%;">
+    <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: center;">
+      Racial Effects
+    </a>
+  </div>  
+
 <div class="list-group" style="margin-bottom: 10px;"> 
   <div class="btn-group" style="margin: 0; width: 100%;">
     <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;">
@@ -6,14 +13,39 @@
         <span ng-repeat="effect in effects.racialEffects().effects">{{effect.abbr}}: {{effect.value}};</span>
       </span>
     </a>
-  </div>
-  
-  <div class="btn-group" style="margin: 0; width: 100%;" ng-repeat="eff in effects.gearEffects()">
-    <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;">
-  {{eff.source}}      
+  </div>  
+
+  <div class="btn-group" style="margin: 0; width: 100%;">
+    <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: center;">
+      Gear Effects
     </a>
   </div>  
   
+    <div class="btn-group" style="margin: 0; width: 100%;" ng-repeat='gearSlot in effects.gearEffects()' ng-show='gearSlot.equipped'>
+    <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;">
+    {{gearSlot.equippedItem.name}}
+      <span class="pull-right">
+        <span ng-repeat="e in gearSlot.equippedItem.effects">{{e.abbr}}: {{e.value}}; </span>
+      </span>
+    </a>
+  </div>   
   
+  
+  
+  
+  <div class="btn-group" style="margin: 0; width: 100%;">
+    <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: center;">
+      Spell Effects
+    </a>
+  </div>    
+  
+  <div class="btn-group" style="margin: 0; width: 100%;" ng-repeat="eff in effects.effects().effects">
+    <a class="btn btn-default btn-block btn-raised dropdown-toggle" data-target="#" data-toggle="dropdown" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;">
+    {{eff.source}}
+      <span class="pull-right">
+        <span ng-repeat="e in eff.effects">{{e.abbr}}: {{e.value}}; </span>
+      </span>
+    </a>
+  </div>    
   
 </div>

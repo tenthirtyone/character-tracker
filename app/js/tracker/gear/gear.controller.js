@@ -15,6 +15,7 @@
     vm.gearSlots = GearService.getGearSlots();
     
     vm.equipItem = function (item, slot){
+      console.log('equipped');
       if (item.equipped) {
         vm.unequipItem(item);
       }
@@ -26,6 +27,7 @@
         }
       }
       InventoryService.equipItem(item);
+      console.log(GearService.getEffects());
     }
     
     vm.unequipItem = function(item) {

@@ -4,9 +4,9 @@
   angular.module('character-tracker.charactersheet')
   .controller('EffectsController', EffectsController);
   
-  EffectsController.$inject = ['EffectsService']
+  EffectsController.$inject = ['EffectsService', 'RacesService', 'GearService']
   
-  function EffectsController(EffectsService) {
+  function EffectsController(EffectsService, RacesService, GearService) {
     var vm = this;
       
     init();
@@ -16,11 +16,12 @@
     }
     
     vm.gearEffects = function() {
-      return EffectsService.getGearEffects();
+      console.log(GearService.getEffects())
+      return GearService.getGearSlots();
     }
     
     vm.racialEffects = function() {
-      return EffectsService.getRacialEffects();
+      return RacesService.getEffects();
     }
     
     function init() {

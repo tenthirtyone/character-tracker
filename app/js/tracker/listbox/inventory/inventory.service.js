@@ -6,13 +6,14 @@
   
   function InventoryService() {
     var items = [
-      {name: 'Longsword +2', 
+      {name: 'Longsword +1', 
        img: 'https://s-media-cache-ak0.pinimg.com/564x/db/5f/d8/db5fd8f1ee5a8f18b70e433f9b026595.jpg', 
        desc: 'Longsword with a faint magic aura', 
        slot: ['weapon1', 'weapon2', '2h'],
        equipable: true, 
        equipped: false, 
-       effects: [{abbr: 'Magic', value: 1, type: 'weapon'}]
+       effects: [{abbr: 'Magic', value: 1, type: 'weapon'},
+                {abbr: 'STR', value: 1}]
       },
       {name: 'Tunic +1', 
        img: 'https://s-media-cache-ak0.pinimg.com/564x/a9/e8/3e/a9e83ebb9acc1c74128e0bcf50c57a8f.jpg', 

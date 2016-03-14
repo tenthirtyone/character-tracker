@@ -5,7 +5,7 @@
   .service('GearService', GearService);
   
   function GearService() {
- 
+    var effects = {};
     var gearSlots = [
       {name: 'Left Earring', slot: 'ear1', equipped: false, equippedItem: {}},
       {name: 'Head', slot: 'head', equipped: false, equippedItem: {}},
@@ -34,16 +34,14 @@
     }
     
     function getEffects() {
-      var effects = [];
+      var temp = [];
       for (i = 0; i < gearSlots.length; i++) {
         if(gearSlots[i].equippedItem.effects) {
-          for (var key in gearSlots[i].equippedItem.effects) {
-            if (gearSlots[i].equippedItem.effects.hasOwnProperty(key)) {
-              effects.push({source: gearSlots[i].equippedItem.name, effects: gearSlots[i].equippedItem.effects[key]});
-            }
-          }
+          temp.push({source: gearSlots[i].equippedItem.name, effects: gearSlots[i].equippedItem.effects });
         }
       }
+      //return [{source: 'test', effects: [{abbr: 'STR', value: 0}]}];
+      effects = {type: 'gear', effects: temp};
       return effects;
     }
     
