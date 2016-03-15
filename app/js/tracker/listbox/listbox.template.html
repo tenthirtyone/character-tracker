@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="panel-body ct-panel-body">
-    <div ui-view="{{tab.tabName}}" ng-repeat="tab in listbox.tabs" ng-show="listbox.currentTab === tab.name"></div>
+    <div ui-view="{{tab.tabName}}" ng-repeat="tab in listbox.tabs" ng-if="listbox.currentTab === tab.name"></div>
   </div>
 </div>
 </div>

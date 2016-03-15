@@ -38,7 +38,7 @@
     } 
        
     function getModForStat(stat) {
-      return getTotalForStat(stat)/2 - 5;
+      return Math.floor(getTotalForStat(stat)/2 - 5);
     }
     
     function getClassBonus(stat) {

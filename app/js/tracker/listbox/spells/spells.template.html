@@ -10,3 +10,20 @@
     <div class="list-group-separator"></div>
   </div>
 </div>
+
+<div class="btn-group" style="margin: 0; width: 100%;" ng-repeat="class in spells.casterClasses">
+  <div class="btn btn-default btn-block btn-raised" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;" ng-click="class.showDetail = !class.showDetail">
+    <h3>{{class.name}}<span class="caret"></span></h3>
+  </div>
+  <div class="btn btn-default btn-block btn-raised" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;" ng-show="class.showDetail">
+    <span ng-if="class.spells.cantrips">Cantrips: {{class.spells.cantrips}};</span>
+    <span ng-if="class.spells.known">Known: {{class.spells.known}};</span>
+    <span ng-if="class.spells.level">Level: {{class.spells.level}};</span>
+    <span ng-if="class.spells.invocations">Invocations: {{class.spells.invocations}};</span>
+  </div>
+  <div class="btn btn-default btn-block btn-raised" style="background-color: #fff; padding: 2px 3px 3px 2px; text-align: left;" ng-show="class.showDetail">
+    <div ng-repeat="obj in class.spells.slots">
+      <span ng-repeat="(key, val) in obj">{{key}}:{{val}};</span>
+    </div>
+  </div>  
+</div>

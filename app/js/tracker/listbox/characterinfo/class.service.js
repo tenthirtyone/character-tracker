@@ -438,45 +438,45 @@
        skills: {total: 2, skills: ['Arcana', 'Deception', 'History', 'Intimidation', 'Investigation', 'Nature', 'Religion']},
        progression: [
          {level: 1, proficiency: 2, features: ['Otherwordly Patron', 'Pact Magic'],
-          spells: {cantrips: 2, known: 2, slots: 1, level: 'first', invocations: 0}},
+          spells: {cantrips: 2, known: 2, slots: 1[{warlock: 1}], level: 'first', invocations: 0}},
          {level: 2, proficiency: 2, features: ['Eldritch Invocation'],
-          spells: {cantrips: 2, known: 3, slots: 2, level: 'first', invocations: 2}},
+          spells: {cantrips: 2, known: 3, slots: [{warlock: 2}], level: 'first', invocations: 2}},
          {level: 3, proficiency: 2, features: ['Pact Boon'],
-          spells: {cantrips: 2, known: 4, slots: 2, level: 'second', invocations: 2}},
+          spells: {cantrips: 2, known: 4, slots: [{warlock: 2}], level: 'second', invocations: 2}},
          {level: 4, proficiency: 2, features: ['Ability Score Improvement'],
-          spells: {cantrips: 3, known: 5, slots: 2, level: 'second', invocations: 2}},
+          spells: {cantrips: 3, known: 5, slots: [{warlock: 2}], level: 'second', invocations: 2}},
          {level: 5, proficiency: 3, features: ['None'],
-          spells: {cantrips: 3, known: 6, slots: 2, level: 'third', invocations: 3}},
+          spells: {cantrips: 3, known: 6, slots: [{warlock: 2}], level: 'third', invocations: 3}},
          {level: 6, proficiency: 3, features: ['Otherwordly Patron Feature'],
-          spells: {cantrips: 3, known: 7, slots: 2, level: 'third', invocations: 3}},
+          spells: {cantrips: 3, known: 7, slots: [{warlock: 2}], level: 'third', invocations: 3}},
          {level: 7, proficiency: 3, features: ['None'],
-          spells: {cantrips: 3, known: 8, slots: 2, level: 'fourth', invocations: 4}},
+          spells: {cantrips: 3, known: 8, slots: [{warlock: 2}], level: 'fourth', invocations: 4}},
          {level: 8, proficiency: 3, features: ['Ability Score Improvement'],
-          spells: {cantrips: 3, known: 9, slots: 2, level: 'fourth', invocations: 4}},
+          spells: {cantrips: 3, known: 9, slots: [{warlock: 2}], level: 'fourth', invocations: 4}},
          {level: 9, proficiency: 4, features: ['None'],
-          spells: {cantrips: 3, known: 10, slots: 2, level: 'fifth', invocations: 5}},
+          spells: {cantrips: 3, known: 10, slots: [{warlock: 2}], level: 'fifth', invocations: 5}},
          {level: 10, proficiency: 4, features: ['Otherwordly Patron Feature'],
-          spells: {cantrips: 4, known: 10, slots: 3, level: 'fifth', invocations: 5}},
+          spells: {cantrips: 4, known: 10, slots: [{warlock: 3}], level: 'fifth', invocations: 5}},
          {level: 11, proficiency: 4, features: ['Mystic Arcanum'],
-          spells: {cantrips: 4, known: 11, slots: 3, level: 'fifth', invocations: 5}},
+          spells: {cantrips: 4, known: 11, slots: [{warlock: 3}], level: 'fifth', invocations: 5}},
          {level: 12, proficiency: 4, features: ['Ability Score Improvement'],
-          spells: {cantrips: 4, known: 11, slots: 3, level: 'fifth', invocations: 6}},
+          spells: {cantrips: 4, known: 11, slots: [{warlock: 3}], level: 'fifth', invocations: 6}},
          {level: 13, proficiency: 5, features: ['Mystic Arcanum'],
-          spells: {cantrips: 4, known: 12, slots: 3, level: 'fifth', invocations: 6}},
+          spells: {cantrips: 4, known: 12, slots: [{warlock: 3}], level: 'fifth', invocations: 6}},
          {level: 14, proficiency: 5, features: ['Otherwordly Patron Feature'],
-          spells: {cantrips: 4, known: 12, slots: 3, level: 'fifth', invocations: 6}},
+          spells: {cantrips: 4, known: 12, slots: [{warlock: 3}], level: 'fifth', invocations: 6}},
          {level: 15, proficiency: 5, features: ['MysticArcanum'],
-          spells: {cantrips: 4, known: 13, slots: 3, level: 'fifth', invocations: 7}},
+          spells: {cantrips: 4, known: 13, slots: [{warlock: 3}], level: 'fifth', invocations: 7}},
          {level: 16, proficiency: 5, features: ['Ability Score Improvement'],
-          spells: {cantrips: 4, known: 13, slots: 3, level: 'fifth', invocations: 7}},
+          spells: {cantrips: 4, known: 13, slots: [{warlock: 3}], level: 'fifth', invocations: 7}},
          {level: 17, proficiency: 6, features: ['Mystic Arcanum'],
-          spells: {cantrips: 4, known: 14, slots: 4, level: 'fifth', invocations: 7}},
+          spells: {cantrips: 4, known: 14, slots: [{warlock: 4}], level: 'fifth', invocations: 7}},
          {level: 18, proficiency: 6, features: ['None'],
-          spells: {cantrips: 4, known: 14, slots: 4, level: 'fifth', invocations: 8}},
+          spells: {cantrips: 4, known: 14, slots: [{warlock: 4}], level: 'fifth', invocations: 8}},
          {level: 19, proficiency: 6, features: ['Ability Score Improvement'],
-          spells: {cantrips: 4, known: 15, slots: 4, level: 'fifth', invocations: 8}},
+          spells: {cantrips: 4, known: 15, slots: [{warlock: 4}], level: 'fifth', invocations: 8}},
          {level: 20, proficiency: 6, features: ['Eldritch Master'],
-          spells: {cantrips: 4, known: 15, slots: 4, level: 'fifth', invocations: 8}},
+          spells: {cantrips: 4, known: 15, slots: [{slot: 4}], level: 'fifth', invocations: 8}},
        ]
       },
       {name: 'Wizard', 
@@ -533,11 +533,25 @@
       
     return {
       addClass: addClass,
+      getClassHP: getClassHP,
       getClassEffects: getClassEffects,
+      getCasterClasses: getCasterClasses,
       getCharacterClasses: getCharacterClasses,
       getBonusForStat: getBonusForStat,
       getClasses: getClasses,
-      removeClass: removeClass
+      removeClass: removeClass,
+      getProficiencyBonus: getProficiencyBonus
+    }
+    
+    function getClassHP() {
+      var hpSources = [];
+      for (var classes in characterClasses){
+        if (characterClasses[classes].hp) {
+          hpSources.push({source: characterClasses[classes].name, hp: (characterClasses[classes].hp * characterClasses[classes].level)});
+        }
+      }
+      console.log(hpSources);
+      return hpSources.length > 0 ? hpSources : 0;
     }
     
     function addClass(newClass) {
@@ -550,12 +564,44 @@
       }
       
       if (!match) {
-        characterClasses.push({name: newClass.name, level: 1})
+        characterClasses.push({name: newClass.name, level: 1, hp: newClass.hitdice})
       }
+      
+    }
+    
+    function getCasterClasses() {
+      var casterClasses = [];
+      
+      if (characterClasses.length > 0) {
+        for (var charClass in characterClasses) {
+          for (var dndClass in classes) {
+            if (classes[dndClass].name === characterClasses[charClass].name && classes[dndClass].progression[0].spells) {
+              for (var level in classes[dndClass].progression) {
+                if (classes[dndClass].progression[level].level === characterClasses[charClass].level) {
+                  //console.log(classes[dndClass].progression[level].spells);
+                  casterClasses.push({name: classes[dndClass].name, spells: classes[dndClass].progression[level].spells})
+                }
+              }
+            } 
+          }
+        }
+      } 
+      return casterClasses;
     }
     
     function getClassEffects() {
       return [];
+    }
+    
+    function getProficiencyBonus() {
+      var tmpLvl = 0;
+      for (var dndClass in characterClasses) {
+        if (characterClasses[dndClass].level) {
+          tmpLvl+=characterClasses[dndClass].level
+        }
+      }
+      
+      return (Math.ceil(tmpLvl/4)+1);
     }
     
     function removeClass(oldClass) {

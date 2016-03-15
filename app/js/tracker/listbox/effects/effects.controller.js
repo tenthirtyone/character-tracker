@@ -27,6 +27,10 @@
       return EffectsService.getRacialEffects();
     }
     
+    vm.classEffects = function() {
+      
+    }
+    
     function init() {
       $.material.init();
     }

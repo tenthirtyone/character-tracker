@@ -100,7 +100,7 @@ gulp.task('scripts', ['clean'], function(){
     'app/**/*.js' 
   ])
     .pipe(concat('scripts.js'))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest(buildDir + 'scripts/'))
     .pipe(livereload());
 })

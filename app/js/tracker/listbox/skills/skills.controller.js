@@ -11,6 +11,10 @@
       
     vm.skills = SkillsService.getSkills();
     
+    vm.getModForSkill = function(skill) {
+      return SkillsService.getModForSkill(skill);
+    }
+    
     init();
     
     function init() {
