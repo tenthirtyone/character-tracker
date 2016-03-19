@@ -29,7 +29,7 @@
     function Login(credentials) {
       $http.get(APIURL, 
                {headers : {'Authorization': 'Basic ' + 
-                btoa(credentials.username + ':' + credentials.password)}})
+                btoa(credentials.email + ':' + credentials.password)}})
       .then(function(res) {
         $state.go('sheet');
         loginError = false;

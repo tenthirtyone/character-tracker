@@ -115,19 +115,19 @@
       "profile": {
         "social_accounts": {
           "twitter": {
-            "username": "TestTwitter",
+            "email": "TestTwitter",
             "proof_url": ""
           },
           "facebook": {
-            "username": "test Facebook",
+            "email": "test Facebook",
             "proof_url": ""
           },
           "instagram": {
-            "username": "Testagram",
+            "email": "Testagram",
             "proof_url": ""
           },
           "snapchat": {
-            "username": "Testchat",
+            "email": "Testchat",
             "proof_url": ""
           }
         },

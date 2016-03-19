@@ -9,7 +9,7 @@
   function LoginController(LoginService) {
     var vm = this;
     vm.credentials = {
-      username: '',
+      email: '',
       password: ''
     };
     vm.loginSuccess = true;

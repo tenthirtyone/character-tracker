@@ -59,7 +59,7 @@
   function LoginController(LoginService) {
     var vm = this;
     vm.credentials = {
-      username: '',
+      email: '',
       password: ''
     };
     vm.loginSuccess = true;
@@ -144,7 +144,7 @@
     function Login(credentials) {
       $http.get(APIURL, 
                {headers : {'Authorization': 'Basic ' + 
-                btoa(credentials.username + ':' + credentials.password)}})
+                btoa(credentials.email + ':' + credentials.password)}})
       .then(function(res) {
         $state.go('tracker');
         loginError = false;
@@ -277,19 +277,19 @@
       "profile": {
         "social_accounts": {
           "twitter": {
-            "username": "TestTwitter",
+            "email": "TestTwitter",
             "proof_url": ""
           },
           "facebook": {
-            "username": "test Facebook",
+            "email": "test Facebook",
             "proof_url": ""
           },
           "instagram": {
-            "username": "Testagram",
+            "email": "Testagram",
             "proof_url": ""
           },
           "snapchat": {
-            "username": "Testchat",
+            "email": "Testchat",
             "proof_url": ""
           }
         },
@@ -500,7 +500,7 @@
     function Login(credentials) {
       $http.get(APIURL, 
                {headers : {'Authorization': 'Basic ' + 
-                btoa(credentials.username + ':' + credentials.password)}})
+                btoa(credentials.email + ':' + credentials.password)}})
       .then(function(res) {
         $state.go('tracker');
         loginError = false;
