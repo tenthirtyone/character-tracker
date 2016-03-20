@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var abilityScoreSchema = new Schema({
+var classSpellSchema = new Schema({
   cantrips: Number,
   known: Number,
   slots: Array  
 });
 
-var AbilityScore = mongoose.model('AbilityScore', abilityScoreSchema);
+var ClassSpell = mongoose.model('ClassSpell', classSpellSchema);
 
-module.exports = AbilityScore;
+module.exports = ClassSpell;

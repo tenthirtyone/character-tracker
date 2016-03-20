@@ -7,7 +7,7 @@ var accountSchema = new Schema({
   password: {type: String, required: true},
   admin: {type: Boolean, default: false},
   playername: String,
-  characters: Array,
+  characters: [{ type: Schema.Types.ObjectId, ref: 'Character' }],
   items: Array,
   spells: Array,
   maps: Array

@@ -6,6 +6,11 @@ var AuthService = require("../services/AuthService.js");
 var CharacterService = require("../services/CharacterService.js");
 var AccountService = require("../services/AccountService.js");
 var AbilityScoreService = require("../services/AbilityScoreService.js");
+var ClassService = require("../services/ClassService.js");
+var GearService = require("../services/GearService.js");
+var InventoryService = require("../services/InventoryService.js");
+var ItemService = require("../services/ItemService.js");
+var SkillsService = require("../services/SkillsService.js");
 
 module.exports = router;
 
@@ -40,6 +45,51 @@ router.get("/abilityscores", function(req, res) {
 
 router.get("/character", function(req, res) {
   CharacterService.getCharacter(req.body.characterid, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+})
+
+router.get("/class", function(req, res) {
+  ClassService.getClass(req.body.classid, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+})
+
+router.get("/gear", function(req, res) {
+  GearService.getGear(req.body.gearid, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+})
+
+router.get("/inventory", function(req, res) {
+  InventoryService.getInventory(req.body.gearid, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+})
+
+router.get("/item", function(req, res) {
+  ItemService.getItem(req.body.itemid, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+})
+
+router.get("/skills", function(req, res) {
+  SkillsService.getSkills(req.body.skillsid, function(err, result) {
     if (err) {
       res.status(400).send(err);
     }

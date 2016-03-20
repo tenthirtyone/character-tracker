@@ -8,6 +8,7 @@ var gulp      = require('gulp'),
   rename      = require('gulp-rename'),
   scss        = require('gulp-sass'),
   livereload  = require('gulp-livereload'),
+  plumber     = require('gulp-plumber'),
   uglify      = require('gulp-uglify');
 
 
@@ -76,17 +77,20 @@ gulp.task('move', ['clean'], function() {
 
 gulp.task('scss', ['clean'], function() {
   gulp.src('app/**/*.scss')
+    .pipe(plumber())
     .pipe(scss())
     .pipe(concat('styles.css'))
     .pipe(gulp.dest(buildDir + 'styles/'))
     .pipe(livereload())
   
   gulp.src(vendorCSS)
+    .pipe(plumber())
     .pipe(concat('vendor-styles.css'))
     .pipe(gulp.dest(buildDir + 'styles/'))
     .pipe(livereload())
   
   gulp.src(vendorCSS)
+    .pipe(plumber())
     .pipe(concat('vendor-styles.css'))
     .pipe(gulp.dest(buildDir + 'styles/'))
     .pipe(livereload());
@@ -100,6 +104,7 @@ gulp.task('scripts', ['clean'], function(){
     'app/**/*.js' 
   ])
     .pipe(concat('scripts.js'))
+    .pipe(plumber())
     .pipe(uglify())
     .pipe(gulp.dest(buildDir + 'scripts/'))
     .pipe(livereload());
@@ -107,6 +112,7 @@ gulp.task('scripts', ['clean'], function(){
 
 gulp.task('views', ['clean'], function(){
   return gulp.src('app/**/*.html')
+    .pipe(plumber())
     .pipe(rename({dirname: ''}))
     .pipe(gulp.dest(buildDir + 'views'))
     .pipe(livereload());		
@@ -115,6 +121,7 @@ gulp.task('views', ['clean'], function(){
 
 gulp.task('vendor', ['clean'], function(){
   return gulp.src(vendorFiles)
+      .pipe(plumber())
       .pipe(concat('vendors.js'))
       //.pipe(uglify())
       .pipe(gulp.dest(buildDir + 'scripts/'));

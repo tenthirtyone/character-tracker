@@ -5,27 +5,29 @@
 var mongoose = require('mongoose');
 var AbilityScore = require('./AbilityScore.model.js');
 var Race = require('./Race.model.js');
+var Effect = require('./Effect.model.js');
 var DnDClass = require ('./DnDClass.model.js');
 
 var Schema = mongoose.Schema;
 
 var characterSchema = new Schema({
   info: {
+    account: [{ type: Schema.Types.ObjectId, ref: 'Account' }],
     characterName: {type: String, default: 'Character Name'},
-    race: [Race],
-    hp: {type: Number, default: 0},
+    race: [{ type: Schema.Types.ObjectId, ref: 'Race' }],
+    temphp: {type: Number, default: 0},
+    maxhp: {type: Number, default: 0},
     ac: {type: Number, default: 0},
     init: {type: Number, default: 0},
     proficiency: {type: Number, default: 0},
     speed: {type: Number, default: 0},
+    abilityscores: [{ type: Schema.Types.ObjectId, ref: 'AbilityScore' }],
     classes: [DnDClass],
-    abilityscores: [AbilityScore],
-    //inventory: Array,
-    //effects: Array,
-    //gear: Array,
-    //feats: Array,
-    //saves: Array,
-    //skills: Array,
+    inventory: [{ type: Schema.Types.ObjectId, ref: 'Inventory' }],
+    gear: [{ type: Schema.Types.ObjectId, ref: 'Gear' }],
+    effects: [Effect],
+    feats: [{ type: Schema.Types.ObjectId, ref: 'Feat' }],
+    skills: [{ type: Schema.Types.ObjectId, ref: 'Skills' }],
     //spells: Array
   }
 });
