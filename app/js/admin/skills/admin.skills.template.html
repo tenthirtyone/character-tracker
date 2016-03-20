@@ -1,0 +1,24 @@
+<div class="row">
+<div class="col-xs-4">  
+  Key
+</div>
+<div class="col-xs-4">
+  Name
+</div>
+<div class="col-xs-4">
+  Ability
+</div>
+</div>
+<div class="row" ng-repeat="(key, skill) in skills.skills">
+
+<div class="col-xs-4">  
+  {{key}}:
+</div>
+<div class="col-xs-4">
+  {{skill.name}}
+</div>
+<div class="col-xs-4">
+  {{skill.ability}}
+</div>
+
+</div>
