@@ -51,6 +51,7 @@ gulp.task('clean', function(){
 
 gulp.task('default', ['move', 'scss', 'scripts', 'views', 'vendor', 'images'], function(){
   gulp.src('dist/index.html')
+    .pipe(plumber())
     .pipe(open({app:browser}));
 });
 
@@ -105,7 +106,7 @@ gulp.task('scripts', ['clean'], function(){
   ])
     .pipe(concat('scripts.js'))
     .pipe(plumber())
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest(buildDir + 'scripts/'))
     .pipe(livereload());
 })

@@ -1,8 +1,6 @@
 "use strict";
 
-var config = require("config");
 var logger = require("../common/logger");
-var request = require('superagent');
 var Skill = require('../models/Skill.model.js');
 
 function addSkill(skill, callback) {

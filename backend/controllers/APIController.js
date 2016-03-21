@@ -6,7 +6,9 @@ var AuthService = require("../services/AuthService.js");
 var CharacterService = require("../services/CharacterService.js");
 var AccountService = require("../services/AccountService.js");
 var AbilityScoreService = require("../services/AbilityScoreService.js");
+var ArmorTypeService = require("../services/ArmorTypeService.js");
 var ClassService = require("../services/ClassService.js");
+var FeatService = require("../services/FeatService.js");
 var GearService = require("../services/GearService.js");
 var InventoryService = require("../services/InventoryService.js");
 var ItemService = require("../services/ItemService.js");
@@ -78,6 +80,52 @@ router.get("/abilityscores", function(req, res) {
   })
 })
 
+
+router.delete("/armortype", function(req, res) {
+  console.log('query:');
+  console.log(req.query);
+  ArmorTypeService.removeArmorType(req.query.armortypeid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/armortype", function(req, res) {
+  ArmorTypeService.getArmorType(req.headers.armortypeid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.post("/armortype", function(req, res) {
+  ArmorTypeService.addArmorType(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.put("/armortype", function(req, res) {
+  ArmorTypeService.updateArmorType(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/armortypes", function(req, res) {
+  ArmorTypeService.getArmorTypes(function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+
+
+
 router.get("/character", function(req, res) {
   CharacterService.getCharacter(req.body.characterid, function(err, result) {
     if (err) {
@@ -89,6 +137,52 @@ router.get("/character", function(req, res) {
 
 router.get("/class", function(req, res) {
   ClassService.getClass(req.body.classid, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+})
+
+router.delete("/feat", function(req, res) {
+  console.log('query:');
+  console.log(req.query);
+  FeatService.removeFeat(req.query.featid, function(err, result) {
+    if (err) return res.status(400).send(err);
+  
+    res.send(result);
+  })
+})
+
+router.get("/feat", function(req, res) {
+  FeatService.getFeat(req.headers.featid, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+})
+
+router.post("/feat", function(req, res) {
+  FeatService.addFeat(req.body, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+});
+
+router.put("/feat", function(req, res) {
+  FeatService.updateFeat(req.body, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+});
+
+router.get("/feats", function(req, res) {
+  FeatService.getFeats(function(err, result) {
     if (err) {
       res.status(400).send(err);
     }
@@ -152,7 +246,7 @@ router.post("/race", function(req, res) {
 });
 
 router.put("/race", function(req, res) {
-  RaceService.updateRkill(req.body, function(err, result) {
+  RaceService.updateRace(req.body, function(err, result) {
     if (err) {
       res.status(400).send(err);
     }

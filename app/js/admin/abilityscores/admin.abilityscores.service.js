@@ -26,7 +26,7 @@
         }
 
         function addAbilityScoreFailed(error) {
-            logger.error('XHR Failed for addAbilityScore.' + error.data);
+            console.log('XHR Failed for addAbilityScore.' + error.data);
         }      
     }
        
@@ -41,7 +41,7 @@
         }
 
         function deleteAbilityScoreFailed(error) {
-            logger.error('XHR Failed for deleteAbilityScore.' + error.data);
+            console.log('XHR Failed for deleteAbilityScore.' + error.data);
         }      
     }
     
@@ -56,7 +56,7 @@
         }
 
         function getAbilityScoresFailed(error) {
-            logger.error('XHR Failed for getSkills.' + error.data);
+            console.log('XHR Failed for getSkills.' + error.data);
         }
     }    
     
@@ -70,7 +70,7 @@
         }
 
         function updateAbilityScoresFailed(error) {
-            logger.error('XHR Failed for updateAbilityScores.' + error.data);
+            console.log('XHR Failed for updateAbilityScores.' + error.data);
         }
     }
 

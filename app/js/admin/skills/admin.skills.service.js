@@ -28,7 +28,7 @@
         }
 
         function addSkillFailed(error) {
-            logger.error('XHR Failed for addSkill.' + error.data);
+            console.log('XHR Failed for addSkill.' + error.data);
         }      
     }
     
@@ -43,7 +43,7 @@
         }
 
         function deleteSkillFailed(error) {
-            logger.error('XHR Failed for deleteSkill.' + error.data);
+            console.log('XHR Failed for deleteSkill.' + error.data);
         }      
     }
     
@@ -58,7 +58,7 @@
         }
 
         function updateSkillsFailed(error) {
-            logger.error('XHR Failed for updateSkills.' + error.data);
+            console.log('XHR Failed for updateSkills.' + error.data);
         }
     }
     
@@ -74,7 +74,7 @@
         }
 
         function getSkillsFailed(error) {
-            logger.error('XHR Failed for getSkills.' + error.data);
+            console.log('XHR Failed for getSkills.' + error.data);
         }
     }
 

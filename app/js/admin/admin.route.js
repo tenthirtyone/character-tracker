@@ -26,16 +26,6 @@
               templateUrl: 'views/admin.navbar.template.html',
               controller: 'NavbarController',
               controllerAs: 'navbar'
-            },
-            'skills@admin': {
-              templateUrl: 'views/admin.skills.template.html',
-              controller: 'SkillsController',
-              controllerAs: 'skills'
-            },
-            'abilityscores@admin': {
-              templateUrl: 'views/admin.abilityscores.template.html',
-              controller: 'AbilityScoresController',
-              controllerAs: 'abilityscores'
             }
           }
         }
