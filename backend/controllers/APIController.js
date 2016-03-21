@@ -10,7 +10,8 @@ var ClassService = require("../services/ClassService.js");
 var GearService = require("../services/GearService.js");
 var InventoryService = require("../services/InventoryService.js");
 var ItemService = require("../services/ItemService.js");
-var SkillsService = require("../services/SkillsService.js");
+var RaceService = require("../services/RacesService.js");
+var SkillService = require("../services/SkillService.js");
 
 module.exports = router;
 
@@ -33,6 +34,40 @@ router.post("/createAccount", function(req, res) {
     }
     res.send(result);  
   });
+})
+
+router.delete("/abilityscore", function(req, res) {
+  console.log('query:');
+  console.log(req.query);
+  AbilityScoreService.removeAbilityScore(req.query.abilityscoreid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/abilityscore", function(req, res) {
+  AbilityScoreService.getAbilityScore(req.headers.abilityscoreid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.post("/abilityscore", function(req, res) {
+  AbilityScoreService.addAbilityScore(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.put("/abilityscore", function(req, res) {
+  AbilityScoreService.updateAbilityScore(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
 })
 
 router.get("/abilityscores", function(req, res) {
@@ -88,8 +123,93 @@ router.get("/item", function(req, res) {
   })
 })
 
+router.delete("/race", function(req, res) {
+  console.log('query:');
+  console.log(req.query);
+  RaceService.removeRace(req.query.raceid, function(err, result) {
+    if (err) return res.status(400).send(err);
+  
+    res.send(result);
+  })
+})
+
+router.get("/race", function(req, res) {
+  RaceService.getRace(req.headers.raceid, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+})
+
+router.post("/race", function(req, res) {
+  RaceService.addRace(req.body, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+});
+
+router.put("/race", function(req, res) {
+  RaceService.updateRkill(req.body, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+});
+
+router.get("/races", function(req, res) {
+  RaceService.getRaces(function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+})
+
+
+
+router.delete("/skill", function(req, res) {
+  console.log('query:');
+  console.log(req.query);
+  SkillService.removeSkill(req.query.skillid, function(err, result) {
+    if (err) return res.status(400).send(err);
+  
+    res.send(result);
+  })
+})
+
+router.get("/skill", function(req, res) {
+  SkillService.getSkill(req.headers.skillid, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+})
+
+router.post("/skill", function(req, res) {
+  SkillService.addSkill(req.body, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+});
+
+router.put("/skill", function(req, res) {
+  SkillService.updateSkill(req.body, function(err, result) {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.send(result);
+  })
+});
+
 router.get("/skills", function(req, res) {
-  SkillsService.getSkills(req.body.skillsid, function(err, result) {
+  SkillService.getSkills(function(err, result) {
     if (err) {
       res.status(400).send(err);
     }

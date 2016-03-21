@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var effectSchema = new Schema({
   type: String,
+  abbr: String,
   value: Number
 });
 

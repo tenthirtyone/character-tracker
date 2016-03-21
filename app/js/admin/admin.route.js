@@ -31,6 +31,11 @@
               templateUrl: 'views/admin.skills.template.html',
               controller: 'SkillsController',
               controllerAs: 'skills'
+            },
+            'abilityscores@admin': {
+              templateUrl: 'views/admin.abilityscores.template.html',
+              controller: 'AbilityScoresController',
+              controllerAs: 'abilityscores'
             }
           }
         }

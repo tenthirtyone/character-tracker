@@ -7,7 +7,7 @@ var raceSchema = new Schema({
   name: String,
   size: String,
   speed: Number,
-  //effects: [Effect]
+  effects: [{ type: Schema.Types.ObjectId, ref: 'Effect' }]
 });
 
 var Race = mongoose.model('Race', raceSchema);
