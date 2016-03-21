@@ -14,6 +14,7 @@ var InventoryService = require("../services/InventoryService.js");
 var ItemService = require("../services/ItemService.js");
 var RaceService = require("../services/RacesService.js");
 var SkillService = require("../services/SkillService.js");
+var WeaponTypeService = require("../services/WeaponTypeService.js");
 
 module.exports = router;
 
@@ -82,8 +83,6 @@ router.get("/abilityscores", function(req, res) {
 
 
 router.delete("/armortype", function(req, res) {
-  console.log('query:');
-  console.log(req.query);
   ArmorTypeService.removeArmorType(req.query.armortypeid, function(err, result) {
     if (err) return res.status(400).send(err);
     
@@ -310,6 +309,50 @@ router.get("/skills", function(req, res) {
     res.send(result);
   })
 })
+
+
+
+router.delete("/weapontype", function(req, res) {
+  WeaponTypeService.removeWeaponType(req.query.weapontypeid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/weapontype", function(req, res) {
+  WeaponTypeService.getWeaponType(req.headers.weapontypeid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.post("/weapontype", function(req, res) {
+  WeaponTypeService.addWeaponType(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.put("/weapontype", function(req, res) {
+  WeaponTypeService.updateWeaponType(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/weapontypes", function(req, res) {
+  WeaponTypeService.getWeaponTypes(function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+
 
 router.get("/login", function(req, res) {
   AuthService.login(req.headers.authorization, function(err, token, result) {

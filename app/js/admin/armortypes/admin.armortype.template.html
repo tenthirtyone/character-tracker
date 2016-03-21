@@ -1,0 +1,34 @@
+<table class="table table-striped table-hover ">
+  <thead>
+  <tr>
+    <th>ArmorType ID</th>
+    <th>ArmorType Name</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr ng-repeat="armortype in armortypes.newArmorType">
+    <td>Add New ArmorType</td>
+    <td>
+      <input type="text" class="form-control" ng-model="armortype.name">
+    </td>
+    <td><a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="armortypes.addArmorType(armortype)">Add New ArmorType</a>
+    </td>
+  </tr>
+  <tr ng-repeat="armortype in armortypes.armortypes">
+    <td>{{armortype._id}}</td>
+    <td>
+      <input type="text" class="form-control" ng-model="armortype.name">
+    </td>
+    <td>
+      <div class="btn-group-vertical">
+        <a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="armortypes.updateArmorType(armortype)">Update</a>
+         <a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="armortypes.deleteArmorType(armortype._id)">Delete</a>
+      </div>
+      
+     
+    </td>
+  </tr>
+  </tbody>
+</table>
+

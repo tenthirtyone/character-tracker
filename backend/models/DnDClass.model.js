@@ -1,17 +1,16 @@
 var mongoose = require('mongoose');
-var Spell = require('./Spell.model.js');
 
 var Schema = mongoose.Schema;
 
 var dndClass = new Schema({
   name: {type: String, default: 'Class Name'},
   hitdice: {type: Number, default: 0},
-  armor: Array,
-  weapons: Array,
+  armor: [{ type: Schema.Types.ObjectId, ref: 'ArmorType' }],
+  weapons: [{ type: Schema.Types.ObjectId, ref: 'WeaponType' }],
   tools: Array,
   savingthrows: Array,
   skillsCount: {type: Number, default: 0},
-  startingskills: Array,
+  startingskills:  [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
   level: {type: Number, default: 0}
 });
 
