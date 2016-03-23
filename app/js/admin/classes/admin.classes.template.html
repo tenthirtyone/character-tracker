@@ -1,0 +1,110 @@
+<table class="table table-striped table-hover ">
+
+  <thead>
+
+  <tr ng-repeat="dndclass in dndclasses.newDnDClass">
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.name">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.hitdice">
+    </td>
+    <td>
+      <span ng-repeat="weaponType in dndclasses.newDnDClass[0].weapons">{{weaponType.name}}; </span>
+      <div class="btn-group">
+        <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          Weapons
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li ng-repeat="weaponType in dndclasses.weaponTypes"><a href="javascript:void(0)" ng-click="dndclasses.addWeaponType(weaponType)"><span ng-show="weaponType.selected" class="pull-right">X</span>{{weaponType.name}}</a></li>
+        </ul>
+      </div>
+    </td>
+    <td>
+      <span ng-repeat="armorType in dndclasses.newDnDClass[0].armor">{{armorType.name}}; </span>
+      <div class="btn-group">
+        <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          Armors
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li ng-repeat="armorType in dndclasses.armorTypes"><a href="javascript:void(0)" ng-click="dndclasses.addArmorType(armorType)"><span ng-show="armorType.selected" class="pull-right">X</span>{{armorType.name}}</a></li>
+        </ul>
+      </div>
+    </td>
+    <td>
+      
+      <span ng-repeat="tool in dndclasses.newDnDClass[0].tools">{{tool.name}}; </span>
+      <div class="btn-group">
+        <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          Tools
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li ng-repeat="tool in dndclasses.tools"><a href="javascript:void(0)" ng-click="dndclasses.addTool(tool)"><span ng-show="tool.selected" class="pull-right">X</span>{{tool.name}}</a></li>
+        </ul>
+      </div>
+
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.savingthrows">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.skillsCount">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.startingskills">
+    </td>
+    <td><a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="dndclasses.addDnDClass(dndclass)">Add New</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <th>Hit Die</th>
+    <th>Weapons</th>
+    <th>Armor</th>
+    <th>Tools</th>
+    <th>Saves</th>
+    <th>Starting Skills</th>
+    <th>Skills</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="dndclass in dndclasses.dndclasses">  
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.name">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.hitdice">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.weapons">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.armor">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.tools">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.savingthrows">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.skillsCount">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="dndclass.startingskills">
+    </td>
+    <td>
+      <div class="btn-group-vertical">
+        <a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="dndclasses.updateDnDClass(dndclass)">Update</a>
+         <a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="dndclasses.deleteDnDClass(dndclass._id)">Delete</a>
+      </div>
+      
+     
+    </td>
+  </tr>
+  </tbody>
+</table>
+

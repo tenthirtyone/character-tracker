@@ -1,14 +1,7 @@
 <table class="table table-striped table-hover ">
   <thead>
-  <tr>
-    <th>Race ID</th>
-    <th>Race Size</th>
-    <th>Race Speed</th>
-  </tr>
-  </thead>
-  <tbody>
+
   <tr ng-repeat="race in races.newRace">
-    <td>Add New Race</td>
     <td>
       <input type="text" class="form-control" ng-model="race.name">
     </td>
@@ -21,8 +14,13 @@
     <td><a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="races.addRace(race)">Add New Race</a>
     </td>
   </tr>
+  <tr>
+    <th>Race Size</th>
+    <th>Race Speed</th>
+  </tr>
+  </thead>
+  <tbody>
   <tr ng-repeat="race in races.races">
-    <td>{{race._id}}</td>
     <td>
       <input type="text" class="form-control" ng-model="race.name">
     </td>

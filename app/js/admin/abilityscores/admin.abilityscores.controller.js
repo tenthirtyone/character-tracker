@@ -8,7 +8,7 @@
   
   function AbilityScoresController(AbilityScoresService) {
     var vm = this;
-    vm.abilityscores = []
+    vm.abilityscores = [];
     vm.addAbilityScore = addAbilityScore;
     vm.deleteAbilityScore = deleteAbilityScore;
     vm.updateAbilityScore = updateAbilityScore;
@@ -28,19 +28,20 @@
     function init() {
       $.material.init();
       
-      return getAbilityScores().then(function() {
+      getAbilityScores().then(function() {
         //logging
+        
       });
+
     }
     
     function getAbilityScores() {
-      
       return AbilityScoresService.getAbilityScores()
         .then(function(res) {
         vm.abilityscores = res
       })
     }
-    
+
     function addAbilityScore(abilityscore) {
       return AbilityScoresService.addAbilityScore(abilityscore)
       .then(function(res) {

@@ -7,13 +7,14 @@ var CharacterService = require("../services/CharacterService.js");
 var AccountService = require("../services/AccountService.js");
 var AbilityScoreService = require("../services/AbilityScoreService.js");
 var ArmorTypeService = require("../services/ArmorTypeService.js");
-var ClassService = require("../services/ClassService.js");
+var DnDClassService = require("../services/DnDClassService.js");
 var FeatService = require("../services/FeatService.js");
 var GearService = require("../services/GearService.js");
 var InventoryService = require("../services/InventoryService.js");
 var ItemService = require("../services/ItemService.js");
 var RaceService = require("../services/RacesService.js");
 var SkillService = require("../services/SkillService.js");
+var ToolService = require("../services/ToolService.js");
 var WeaponTypeService = require("../services/WeaponTypeService.js");
 
 module.exports = router;
@@ -81,6 +82,14 @@ router.get("/abilityscores", function(req, res) {
   })
 })
 
+router.get("/abilityscoresabbr", function(req, res) {
+  AbilityScoreService.getAbilityScoresAbbr(function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
 
 router.delete("/armortype", function(req, res) {
   ArmorTypeService.removeArmorType(req.query.armortypeid, function(err, result) {
@@ -122,9 +131,6 @@ router.get("/armortypes", function(req, res) {
   })
 })
 
-
-
-
 router.get("/character", function(req, res) {
   CharacterService.getCharacter(req.body.characterid, function(err, result) {
     if (err) {
@@ -134,14 +140,47 @@ router.get("/character", function(req, res) {
   })
 })
 
-router.get("/class", function(req, res) {
-  ClassService.getClass(req.body.classid, function(err, result) {
-    if (err) {
-      res.status(400).send(err);
-    }
+
+router.delete("/dndclass", function(req, res) {
+  DnDClassService.removeDnDClass(req.query.dndclassid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
     res.send(result);
   })
 })
+
+router.get("/dndclass", function(req, res) {
+  DnDClassService.getDnDClass(req.headers.dndclassid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.post("/dndclass", function(req, res) {
+  DnDClassService.addDnDClass(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.put("/dndclass", function(req, res) {
+  DnDClassService.updateDnDClass(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/dndclasses", function(req, res) {
+  DnDClassService.getDnDClasses(function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
 
 router.delete("/feat", function(req, res) {
   console.log('query:');
@@ -312,6 +351,52 @@ router.get("/skills", function(req, res) {
 
 
 
+
+
+router.delete("/tool", function(req, res) {
+  ToolService.removeTool(req.query.toolid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/tool", function(req, res) {
+  ToolService.getTool(req.headers.toolid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.post("/tool", function(req, res) {
+  ToolService.addTool(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.put("/tool", function(req, res) {
+  ToolService.updateTool(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/tools", function(req, res) {
+  ToolService.getTools(function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+
+
+
+
 router.delete("/weapontype", function(req, res) {
   WeaponTypeService.removeWeaponType(req.query.weapontypeid, function(err, result) {
     if (err) return res.status(400).send(err);
@@ -351,6 +436,9 @@ router.get("/weapontypes", function(req, res) {
     res.send(result);
   })
 })
+
+
+
 
 
 

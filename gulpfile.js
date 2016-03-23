@@ -95,6 +95,7 @@ gulp.task('scss', ['clean'], function() {
     .pipe(concat('vendor-styles.css'))
     .pipe(gulp.dest(buildDir + 'styles/'))
     .pipe(livereload());
+  
 })
 
 gulp.task('scripts', ['clean'], function(){

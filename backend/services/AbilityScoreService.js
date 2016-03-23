@@ -35,6 +35,14 @@ function getAbilityScores(callback) {
   });
 }
 
+function getAbilityScoresAbbr(callback) {
+  AbilityScore.find({}, 'abbr', function(err, abilityscores) {
+    if(err) return callback(err);
+
+    return callback(null, abilityscores);
+  })
+}
+
 function removeAbilityScore(abilityscoreid, callback) {
   console.log(abilityscoreid);
   AbilityScore.remove({_id: abilityscoreid}, function(err){
@@ -64,6 +72,7 @@ module.exports = {
   addAbilityScore: addAbilityScore,
   getAbilityScore: getAbilityScore,
   getAbilityScores: getAbilityScores,
+  getAbilityScoresAbbr: getAbilityScoresAbbr,
   removeAbilityScore: removeAbilityScore,
   saveAbilityScores: saveAbilityScores,
   updateAbilityScore: updateAbilityScore

@@ -7,8 +7,8 @@ var dndClass = new Schema({
   hitdice: {type: Number, default: 0},
   armor: [{ type: Schema.Types.ObjectId, ref: 'ArmorType' }],
   weapons: [{ type: Schema.Types.ObjectId, ref: 'WeaponType' }],
-  tools: Array,
-  savingthrows: Array,
+  tools: [{ type: Schema.Types.ObjectId, ref: 'Tool' }],
+  savingthrows: [{ type: Schema.Types.ObjectId, ref: 'AbilityScore' }],
   skillsCount: {type: Number, default: 0},
   startingskills:  [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
   level: {type: Number, default: 0}

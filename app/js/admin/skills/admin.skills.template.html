@@ -1,31 +1,45 @@
 <table class="table table-striped table-hover ">
   <thead>
+
+  <tr ng-repeat="skill in skills.newSkill">
+    <td>
+      <input type="text" class="form-control" ng-model="skill.name">
+    </td>
+    <td>
+      <div class="btn-group">
+        <a href="bootstrap-elements.html" data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          {{skill.ability}}
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li ng-repeat="ability in skills.abilityscoresabbr"><a href="javascript:void(0)" ng-click="skill.ability = ability.abbr">{{ability.abbr}}</a></li>
+        </ul>
+      </div>
+    </td>
+    <td><a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="skills.addSkill(skill)">Add New Skill</a>
+    </td>
+  </tr>
   <tr>
-    <th>Skill ID</th>
     <th>Skill Name</th>
     <th>Skill Ability Score</th>
   </tr>
   </thead>
   <tbody>
 
-  <tr ng-repeat="skill in skills.newSkill">
-    <td>Add New Skill</td>
-    <td>
-      <input type="text" class="form-control" ng-model="skill.name">
-    </td>
-    <td>
-      <input type="text" class="form-control" ng-model="skill.ability">
-    </td>
-    <td><a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="skills.addSkill(skill)">Add New Skill</a>
-    </td>
-  </tr>
   <tr ng-repeat="skill in skills.skills">
-    <td>{{skill._id}}</td>
     <td>
       <input type="text" class="form-control" ng-model="skill.name">
     </td>
     <td>
-      <input type="text" class="form-control" ng-model="skill.ability">
+      <div class="btn-group">
+        <a href="bootstrap-elements.html" data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          {{skill.ability}}
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li ng-repeat="ability in skills.abilityscoresabbr"><a href="javascript:void(0)" ng-click="skill.ability = ability.abbr">{{ability.abbr}}</a></li>
+        </ul>
+      </div>
     </td>
     <td>
       <div class="btn-group-vertical">

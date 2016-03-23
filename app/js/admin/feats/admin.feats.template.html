@@ -1,15 +1,7 @@
 <table class="table table-striped table-hover ">
   <thead>
-  <tr>
-    <th>Feat ID</th>
-    <th>Feat Name</th>
-    <th>Feat Description</th>
-  </tr>
-  </thead>
-  <tbody>
 
   <tr ng-repeat="feat in feats.newFeat">
-    <td>Add New Feat</td>
     <td>
       <input type="text" class="form-control" ng-model="feat.name">
     </td>
@@ -19,8 +11,14 @@
     <td><a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="feats.addFeat(feat)">Add New Feat</a>
     </td>
   </tr>
+  <tr>
+    <th>Feat Name</th>
+    <th>Feat Description</th>
+  </tr>
+  </thead>
+  <tbody>
+
   <tr ng-repeat="feat in feats.feats">
-    <td>{{feat._id}}</td>
     <td>
       <input type="text" class="form-control" ng-model="feat.name">
     </td>

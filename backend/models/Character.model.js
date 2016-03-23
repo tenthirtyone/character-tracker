@@ -21,14 +21,14 @@ var characterSchema = new Schema({
     init: {type: Number, default: 0},
     proficiency: {type: Number, default: 0},
     speed: {type: Number, default: 0},
-    abilityscores: [{ type: Schema.Types.ObjectId, ref: 'AbilityScore' }],
+    abilityscores: [AbilityScore],
     classes: [DnDClass],
     inventory: [{ type: Schema.Types.ObjectId, ref: 'Inventory' }],
     gear: [{ type: Schema.Types.ObjectId, ref: 'Gear' }],
-    effects: [Effect],
     feats: [{ type: Schema.Types.ObjectId, ref: 'Feat' }],
-    skills: [{ type: Schema.Types.ObjectId, ref: 'Skills' }],
-    //spells: Array
+    skills: [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
+    tools: [{ type: Schema.Types.ObjectId, ref: 'Tool' }],
+    effects: [Effect],
   }
 });
 

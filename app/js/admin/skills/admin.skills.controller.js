@@ -4,14 +4,15 @@
   angular.module('GNAdmin.skills')
   .controller('SkillsController', SkillsController);
   
-  SkillsController.$inject = ['SkillsService'];
+  SkillsController.$inject = ['SkillsService', 'AbilityScoresService'];
   
-  function SkillsController(SkillsService) {
+  function SkillsController(SkillsService, AbilityScoresService) {
     var vm = this;
     vm.addSkill = addSkill;
     vm.deleteSkill = deleteSkill;
     vm.updateSkill = updateSkill;
-    vm.skills = []
+    vm.skills = [];
+    vm.abilityscoresabbr = [];
     vm.newSkill = [
       {
         name: 'New Name',
@@ -24,16 +25,27 @@
     function init() {
       $.material.init();
       
-      return getSkills().then(function() {
+      getSkills().then(function() {
         //logging
       });
+
+      getAbilityScoresAbbr().then(function() {
+        //logging
+      })
     }
     
     function getSkills() {
       return SkillsService.getSkills()
         .then(function(res) {
-        vm.skills = res
+        vm.skills = res;
       })
+    }
+
+    function getAbilityScoresAbbr() {
+      return AbilityScoresService.getAbilityScoresAbbr()
+        .then(function(res) {
+          vm.abilityscoresabbr = res;
+        })
     }
     
     function addSkill(skill) {
