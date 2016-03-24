@@ -45,9 +45,6 @@ function getDnDClasses(callback) {
 }
 
 function removeDnDClass(dndclassid, callback) {
-  console.log(dndclassid);
-  console.log(dndclassid);
-  console.log(dndclassid);
   DnDClass.remove({_id: dndclassid}, function(err){
     
       return callback(null, {success: true});      
@@ -57,7 +54,13 @@ function removeDnDClass(dndclassid, callback) {
 function updateDnDClass(dndclass, callback) {
   var id = dndclass._id;
   delete dndclass._id;
+  console.log('test');
+  console.log('test');
+  console.log('test');
+  console.log('test');
+  console.log(dndclass);
   DnDClass.findByIdAndUpdate(id, dndclass, function(err, newDnDClass) {
+    console.log(err)
     if (err) return callback(err);
     
     return callback(null, {success: true});

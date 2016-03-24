@@ -70,51 +70,96 @@
     function addArmorType(armorType) {
       for (var i=0; i < currentClass.armor.length; i++) {
         if (armorType._id === currentClass.armor[i]._id) {
-          return 
+          return removeArmorType(armorType);
         }
       }
       currentClass.armor.push(armorType);
     }
 
+    function removeArmorType(armorType) {
+      for (var i=0; i < currentClass.armor.length; i++) {
+        if (armorType._id === currentClass.armor[i]._id) {
+          currentClass.armor.splice(i, 1);
+        }
+      }
+      return 
+    }
+
     function addSavingThrow(save) {
       for (var i=0; i < currentClass.savingthrows.length; i++) {
         if (save._id === currentClass.savingthrows[i]._id) {
-          return 
+          return removeSavingThrow(save);
         }
       }
       currentClass.savingthrows.push(save);
     }
+
+    function removeSavingThrow(save) {
+      for (var i=0; i < currentClass.savingthrows.length; i++) {
+        if (save._id === currentClass.savingthrows[i]._id) {
+          currentClass.savingthrows.splice(i, 1);
+        }
+      }
+      return 
+    }
+
   
     function addSkill(skill) {
       for (var i=0; i < currentClass.startingskills.length; i++) {
         if (skill._id === currentClass.startingskills[i]._id) {
-          return 
+          return removeSkill(skill);
         }
       }
       currentClass.startingskills.push(skill);
     }
-  
+
+    function removeSkill(skill) {
+      for (var i=0; i < currentClass.startingskills.length; i++) {
+        if (skill._id === currentClass.startingskills[i]._id) {
+          currentClass.startingskills.splice(i, 1);
+        }
+      }
+      return 
+    }  
+
+
     function addTool(tool) {
       for (var i=0; i < currentClass.tools.length; i++) {
         if (tool._id === currentClass.tools[i]._id) {
-          return 
+          return removeTool(tool);
         }
       }
       console.log('not found');
       currentClass.tools.push(tool);
     }
+
+    function removeTool(tool) {
+      for (var i=0; i < currentClass.tools.length; i++) {
+        if (tool._id === currentClass.tools[i]._id) {
+          currentClass.tools.splice(i, 1);
+        }
+      }
+      return 
+    }      
   
     function addWeaponType(weaponType) {
       for (var i=0; i < currentClass.weapons.length; i++) {
         if (weaponType._id === currentClass.weapons[i]._id) {
-          console.log('found')
-          return 
+          return removeWeaponType(weaponType);
         }
       }
-      console.log('found')
-      console.log('not found');
       currentClass.weapons.push(weaponType);
     }
+
+    function removeWeaponType(weaponType) {
+      for (var i=0; i < currentClass.weapons.length; i++) {
+        if (weaponType._id === currentClass.weapons[i]._id) {
+          console.log('wtf')
+          currentClass.weapons.splice(i, 1);
+        }
+      }
+      return 
+    }     
 
     function getDnDClasses() {
       return DnDClassService.getDnDClasses()
@@ -178,7 +223,7 @@
     }
     
     function updateDnDClass(dndclass) {
-      
+      console.log('wtf')
       return DnDClassService.updateDnDClass(dndclass)
       .then(function(res) {
         init();
