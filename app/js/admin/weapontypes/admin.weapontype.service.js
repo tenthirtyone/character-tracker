@@ -24,8 +24,6 @@
         .catch(addWeaponTypeFailed);
       
         function addWeaponTypeComplete(response) {
-            console.log('test');
-            console.log(response.data);
             return response.data;
         }
 
@@ -35,7 +33,6 @@
     }
     
     function deleteWeaponType(weapontypeid) {
-      console.log(weapontypeid);
       return $http.delete('http://localhost:28469/api/weapontype', {params: {weapontypeid: weapontypeid}})
         .then(deleteWeaponTypeComplete)
         .catch(deleteWeaponTypeFailed);
@@ -71,7 +68,6 @@
             .catch(getWeaponTypesFailed);
 
         function getWeaponTypesComplete(response) {
-            console.log(response.data);
             return response.data;
         }
 

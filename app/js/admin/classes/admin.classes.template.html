@@ -10,7 +10,7 @@
       <td>
         <span ng-repeat="weaponType in dndclasses.newDnDClass[0].weapons">{{weaponType.name}}; </span>
         <div class="btn-group">
-          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Weapons
           <span class="caret"></span>
           </a>
@@ -22,7 +22,7 @@
       <td>
         <span ng-repeat="armorType in dndclasses.newDnDClass[0].armor">{{armorType.name}}; </span>
         <div class="btn-group">
-          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Armors
           <span class="caret"></span>
           </a>
@@ -34,7 +34,7 @@
       <td>
         <span ng-repeat="tool in dndclasses.newDnDClass[0].tools">{{tool.name}}; </span>
         <div class="btn-group">
-          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Tools
           <span class="caret"></span>
           </a>
@@ -46,7 +46,7 @@
       <td>
         <span ng-repeat="save in dndclasses.newDnDClass[0].savingthrows">{{save.abbr}}; </span>
         <div class="btn-group">
-          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Saves
           <span class="caret"></span>
           </a>
@@ -61,7 +61,7 @@
       <td>
         <span ng-repeat="skill in dndclasses.newDnDClass[0].startingskills">{{skill.name}}; </span>
         <div class="btn-group">
-          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Skills
           <span class="caret"></span>
           </a>
@@ -97,7 +97,7 @@
       <td>
         <span ng-repeat="weaponType in dndclass.weapons">{{weaponType.name}}; </span>
         <div class="btn-group">
-          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Weapons
           <span class="caret"></span>
           </a>
@@ -109,7 +109,7 @@
       <td>
         <span ng-repeat="armorType in dndclass.armor">{{armorType.name}}; </span>
         <div class="btn-group">
-          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Armors
           <span class="caret"></span>
           </a>
@@ -121,7 +121,7 @@
       <td>
         <span ng-repeat="tool in dndclass.tools">{{tool.name}}; </span>
         <div class="btn-group">
-          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Tools
           <span class="caret"></span>
           </a>
@@ -133,7 +133,7 @@
       <td>
         <span ng-repeat="save in dndclass.savingthrows">{{save.abbr}}; </span>
         <div class="btn-group">
-          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Saves
           <span class="caret"></span>
           </a>
@@ -148,7 +148,7 @@
       <td>
         <span ng-repeat="skill in dndclass.startingskills">{{skill.name}}; </span>
         <div class="btn-group">
-          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
+          <a data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Skills
           <span class="caret"></span>
           </a>
@@ -160,7 +160,7 @@
       <td>
         <div class="btn-group-vertical">
         <a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="dndclasses.addDnDClass(dndclass)">Update</a>
-        <a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="dndclasses.addDnDClass(dndclass)">Delete</a>
+        <a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="dndclasses.deleteDnDClass(dndclass._id)">Delete</a>
         </div>
       </td>
   </tbody>

@@ -8,11 +8,14 @@
   
   function RacesController(RacesService, EffectsService) {
     var vm = this;
+    var currentRace = {};
+
     vm.addEffect = addEffect;
     vm.addRace = addRace;
     vm.newEffect = {};
     vm.deleteRace = deleteRace;
     vm.updateRace = updateRace;
+    vm.setRace = setRace;
     vm.races = []
     vm.newRace = []; 
     
@@ -42,7 +45,7 @@
       }
       EffectsService.addEffect(effect)
         .then(function(res) {
-          vm.newRace[0].effects.push(effect);
+          currentRace.effects.push(effect);
           getEffect();
         })
     }
@@ -69,8 +72,12 @@
       })
     }
     
-    function addRace(race) {
+    function setRace(race) {
+      console.log(race);
+      currentRace = race;
+    }
 
+    function addRace(race) {
       return RacesService.addRace(race)
       .then(function(res) {
         init();

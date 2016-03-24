@@ -23,8 +23,6 @@
         .catch(addDnDClassFailed);
       
         function addDnDClassComplete(response) {
-            console.log('test');
-            console.log(response.data);
             return response.data;
         }
 
@@ -34,12 +32,15 @@
     }
     
     function deleteDnDClass(dndclassid) {
+      console.log('#######');
+      console.log('#######');
       console.log(dndclassid);
       return $http.delete('http://localhost:28469/api/dndclass', {params: {dndclassid: dndclassid}})
         .then(deleteDnDClassComplete)
         .catch(deleteDnDClassFailed);
       
         function deleteDnDClassComplete(response) {
+            console.log('success')
             return response.data;
         }
 
@@ -70,7 +71,6 @@
             .catch(getDnDClassFailed);
 
         function getDnDClassComplete(response) {
-            console.log(response.data);
             return response.data;
         }
 
@@ -85,7 +85,6 @@
             .catch(getDnDClassFailed);
 
         function getDnDClassComplete(response) {
-            console.log(response.data);
             return response.data;
         }
 

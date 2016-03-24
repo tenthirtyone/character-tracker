@@ -46,6 +46,8 @@ function getDnDClasses(callback) {
 
 function removeDnDClass(dndclassid, callback) {
   console.log(dndclassid);
+  console.log(dndclassid);
+  console.log(dndclassid);
   DnDClass.remove({_id: dndclassid}, function(err){
     
       return callback(null, {success: true});      

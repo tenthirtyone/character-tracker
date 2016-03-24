@@ -22,8 +22,6 @@
         .catch(addSkillFailed);
       
         function addSkillComplete(response) {
-            console.log('test');
-            console.log(response.data);
             return response.data;
         }
 
@@ -33,7 +31,6 @@
     }
     
     function deleteSkill(skillid) {
-      console.log(skillid);
       return $http.delete('http://localhost:28469/api/skill', {params: {skillid: skillid}})
         .then(deleteSkillComplete)
         .catch(deleteSkillFailed);
@@ -69,7 +66,6 @@
             .catch(getSkillsFailed);
 
         function getSkillsComplete(response) {
-            console.log(response.data);
             return response.data;
         }
 

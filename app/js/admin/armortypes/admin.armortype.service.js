@@ -22,8 +22,6 @@
         .catch(addArmorTypeFailed);
       
         function addArmorTypeComplete(response) {
-            console.log('test');
-            console.log(response.data);
             return response.data;
         }
 
@@ -33,7 +31,6 @@
     }
     
     function deleteArmorType(armortypeid) {
-      console.log(armortypeid);
       return $http.delete('http://localhost:28469/api/armortype', {params: {armortypeid: armortypeid}})
         .then(deleteArmorTypeComplete)
         .catch(deleteArmorTypeFailed);
@@ -69,7 +66,6 @@
             .catch(getArmorTypesFailed);
 
         function getArmorTypesComplete(response) {
-            console.log(response.data);
             return response.data;
         }
 

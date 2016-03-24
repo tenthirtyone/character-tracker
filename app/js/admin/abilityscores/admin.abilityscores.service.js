@@ -22,7 +22,6 @@
         .catch(addAbilityScoreFailed);
       
         function addAbilityScoreComplete(response) {
-            console.log(response.data);
             return response.data;
         }
 
@@ -32,7 +31,6 @@
     }
        
     function deleteAbilityScore(abilityscoreid) {
-      console.log(abilityscoreid);
       return $http.delete('http://localhost:28469/api/abilityscore', {params: {abilityscoreid: abilityscoreid}})
         .then(deleteAbilityScoreComplete)
         .catch(deleteAbilityScoreFailed);
@@ -52,7 +50,6 @@
             .catch(getAbilityScoresFailed);
 
         function getAbilityScoresComplete(response) {
-            console.log(response.data);
             return response.data;
         }
 
@@ -67,7 +64,6 @@
             .catch(getAbilityScoresAbbrFailed);
 
         function getAbilityScoresAbbrComplete(response) {
-            console.log(response.data);
             return response.data;
         }
 

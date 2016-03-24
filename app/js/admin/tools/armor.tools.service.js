@@ -23,8 +23,6 @@
         .catch(addToolFailed);
       
         function addToolComplete(response) {
-            console.log('test');
-            console.log(response.data);
             return response.data;
         }
 
@@ -34,7 +32,6 @@
     }
     
     function deleteTool(toolid) {
-      console.log(toolid);
       return $http.delete('http://localhost:28469/api/tool', {params: {toolid: toolid}})
         .then(deleteToolComplete)
         .catch(deleteToolFailed);
@@ -70,7 +67,6 @@
             .catch(getToolFailed);
 
         function getToolComplete(response) {
-            console.log(response.data);
             return response.data;
         }
 
@@ -85,7 +81,6 @@
             .catch(getToolsFailed);
 
         function getToolsComplete(response) {
-            console.log(response.data);
             return response.data;
         }
 
