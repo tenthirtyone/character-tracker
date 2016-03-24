@@ -12,18 +12,20 @@
     return {
       addRace: addRace,
       deleteRace: deleteRace,
+      getRace: getRace,
       getRaces: getRaces,
       updateRace: updateRace
     };
    
     function addRace(race) {
+      console.log('####')
+      console.log(race)
+      console.log('####')
       return $http.post('http://localhost:28469/api/race', race)
         .then(addRaceComplete)
         .catch(addRaceFailed);
       
         function addRaceComplete(response) {
-            console.log('test');
-            console.log(response.data);
             return response.data;
         }
 
@@ -33,7 +35,6 @@
     }
     
     function deleteRace(raceid) {
-      console.log(raceid);
       return $http.delete('http://localhost:28469/api/race', {params: {raceid: raceid}})
         .then(deleteRaceComplete)
         .catch(deleteRaceFailed);
@@ -63,13 +64,26 @@
     }
     
     
+    function getRace() {
+        return $http.get('http://localhost:28469/api/race')
+            .then(getRaceComplete)
+            .catch(getRaceFailed);
+
+        function getRaceComplete(response) {
+            return response.data;
+        }
+
+        function getRaceFailed(error) {
+            console.log('XHR Failed for getRaces.' + error.data);
+        }
+    }
+    
     function getRaces() {
         return $http.get(APIURL)
             .then(getRacesComplete)
             .catch(getRacesFailed);
 
         function getRacesComplete(response) {
-            console.log(response.data);
             return response.data;
         }
 

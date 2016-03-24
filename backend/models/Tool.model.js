@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var toolTypeSchema = new Schema({
+var toolSchema = new Schema({
   name: {type: String, default: 'Tool Name'}
 });
 
-var ToolType = mongoose.model('ToolType', toolTypeSchema);
+var Tool = mongoose.model('Tool', toolSchema);
 
-module.exports = ToolType;
+module.exports = Tool;

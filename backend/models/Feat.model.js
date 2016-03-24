@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
+var Effect = require('./Effect.model.js');
 
 var Schema = mongoose.Schema;
 
 var featSchema = new Schema({
   name: {type: String, default: 'Feat name'},
   desc: {type: String, default: 'Description'},
-  effects: [{ type: Schema.Types.ObjectId, ref: 'Effect' }]
+  effects: [Effect]
 });
 
 var Feat = mongoose.model('Feat', featSchema);

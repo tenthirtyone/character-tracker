@@ -11,12 +11,24 @@
     <td>
       <input type="text" class="form-control" ng-model="race.speed">
     </td>
-    <td><a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="races.addRace(race)">Add New Race</a>
+    <td>
+    
+      <span ng-repeat="effect in race.effects">{{effect.abbr}}; {{effect.value}}; </span>
+      <div class="btn-group">
+        <div class="row-action-primary">
+          <button class="btn btn-raised btn-default " data-toggle="modal" data-target="#combatModal">Effects</i>
+        </div>
+      </div>
+
+    </td>
+    <td><a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="races.addRace(races.newRace[0])">Add New Race</a>
     </td>
   </tr>
   <tr>
-    <th>Race Size</th>
-    <th>Race Speed</th>
+    <th>Name</th>
+    <th>Size</th>
+    <th>Speed</th>
+    <th>Effects</th>
   </tr>
   </thead>
   <tbody>
@@ -31,6 +43,15 @@
       <input type="text" class="form-control" ng-model="race.speed">
     </td>
     <td>
+      
+       <span ng-repeat="effect in race.effects">{{effect.abbr}}; {{effect.value}}; </span>
+      <div class="btn-group">
+        <div class="row-action-primary">
+          <button class="btn btn-raised btn-default " data-toggle="modal" data-target="#combatModal">Effects</i>
+        </div>
+      </div>
+    </td>
+    <td>
       <div class="btn-group-vertical">
         <a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="races.updateRace(race)">Update</a>
          <a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="races.deleteRace(race._id)">Delete</a>
@@ -41,3 +62,40 @@
   </tr>
   </tbody>
 </table>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="combatModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add New Attack</h4>
+        </div>
+        <div class="modal-body">
+          {{races.newEffect}}
+          <div class="form-group">
+            <label class="control-label" for="focusedInput1">Type</label>
+            <input class="form-control" id="focusedInput1" type="text" ng-model="races.newEffect.type">
+          </div>
+
+          <div class="form-group">
+            <label class="control-label" for="focusedInput1">Abbr</label>
+            <input class="form-control" id="focusedInput1" type="text" ng-model="races.newEffect.abbr">
+          </div>
+
+          <div class="form-group">
+            <label class="control-label" for="focusedInput1">Value</label>
+            <input class="form-control" id="focusedInput1" type="number" ng-model="races.newEffect.value">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal" ng-click="races.addEffect(races.newEffect)">Add</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>

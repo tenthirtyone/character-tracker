@@ -4,12 +4,14 @@
   angular.module('GNAdmin.dndclass')
   .controller('DnDClassController', DnDClassController);
   
-  DnDClassController.$inject = ['AbilityScoresService', 'ArmorTypesService', 'DnDClassService', 'WeaponTypesService', 'ToolService'];
+  DnDClassController.$inject = ['AbilityScoresService', 'ArmorTypesService', 'DnDClassService', 'WeaponTypesService', 'SkillsService', 'ToolService'];
   
-  function DnDClassController(AbilityScoresService, ArmorTypesService, DnDClassService, WeaponTypesService, ToolService) {
+  function DnDClassController(AbilityScoresService, ArmorTypesService, DnDClassService, WeaponTypesService, SkillsService, ToolService) {
     var vm = this;
     vm.addArmorType = addArmorType;
     vm.addDnDClass = addDnDClass;
+    vm.addSavingThrow = addSavingThrow;
+    vm.addSkill = addSkill;
     vm.addTool = addTool;
     vm.addWeaponType = addWeaponType
     vm.deleteDnDClass = deleteDnDClass;
@@ -19,6 +21,7 @@
     vm.dndclasses = [];
     vm.newDnDClass = []; 
     vm.saves = [];  
+    vm.skills = [];
     vm.tools = [];
     vm.weaponTypes = [];
 
@@ -50,6 +53,9 @@
       getSaves().then(function() {
         //logging
       })
+      getSkills().then(function() {
+        //logging
+      })
       getTools().then(function() {
         //loggin
       })
@@ -68,6 +74,26 @@
       vm.newDnDClass[0].armor.push(armorType);
     }
 
+    function addSavingThrow(save) {
+      for (var i=0; i < vm.newDnDClass[0].savingthrows.length; i++) {
+        if (save._id === vm.newDnDClass[0].savingthrows[i]._id) {
+          return 
+        }
+      }
+      console.log('not found');
+      vm.newDnDClass[0].savingthrows.push(save);
+    }
+  
+    function addSkill(skill) {
+      for (var i=0; i < vm.newDnDClass[0].startingskills.length; i++) {
+        if (skill._id === vm.newDnDClass[0].startingskills[i]._id) {
+          return 
+        }
+      }
+      console.log('not found');
+      vm.newDnDClass[0].startingskills.push(skill);
+    }
+  
     function addTool(tool) {
       for (var i=0; i < vm.newDnDClass[0].tools.length; i++) {
         if (tool._id === vm.newDnDClass[0].tools[i]._id) {
@@ -99,6 +125,13 @@
       return AbilityScoresService.getAbilityScoresAbbr()
         .then(function(res) {
           vm.saves = res;
+        })
+    }
+
+    function getSkills() {
+      return SkillsService.getSkills()
+        .then(function(res) {
+          vm.skills = res;
         })
     }
 

@@ -4,32 +4,64 @@
   angular.module('GNAdmin.races')
   .controller('RacesController', RacesController);
   
-  RacesController.$inject = ['RacesService'];
+  RacesController.$inject = ['RacesService', 'EffectsService'];
   
-  function RacesController(RacesService) {
+  function RacesController(RacesService, EffectsService) {
     var vm = this;
+    vm.addEffect = addEffect;
     vm.addRace = addRace;
+    vm.newEffect = {};
     vm.deleteRace = deleteRace;
     vm.updateRace = updateRace;
     vm.races = []
-    vm.newRace = [
-      {
-        name: 'New Name',
-        speed: 35,
-        size: 'M'
-      }
-    ];    
+    vm.newRace = []; 
     
     init();
     
     function init() {
       $.material.init();
-      
-      return getRaces().then(function() {
+      getEffect().then(function() {
+        //logging
+      })
+
+      getRace().then(function() {
+        //logging
+      })
+
+      getRaces().then(function() {
         //logging
       });
     }
-    
+
+    function addEffect(effect) {
+
+      for (var i=0; i < vm.newRace[0].effects.length; i++) {
+        if (effect._id === vm.newRace[0].effects[i]._id) {
+          return 
+        }
+      }
+      EffectsService.addEffect(effect)
+        .then(function(res) {
+          vm.newRace[0].effects.push(effect);
+          getEffect();
+        })
+    }
+
+    function getEffect() {
+      return EffectsService.getEffect()
+        .then(function(res) {
+        vm.newEffect = res
+      })
+    }
+
+    function getRace() {
+      return RacesService.getRace()
+        .then(function(res) {
+        vm.newRace = [];  
+        vm.newRace.push(res);
+      })
+    }
+
     function getRaces() {
       return RacesService.getRaces()
         .then(function(res) {
@@ -38,33 +70,24 @@
     }
     
     function addRace(race) {
-      console.log(race);
+
       return RacesService.addRace(race)
       .then(function(res) {
-        console.log('getting races');
-        getRaces();
-        vm.newRace = [
-          {
-            name: 'New Name',
-            speed: 35,
-            size: 'M'
-          }
-        ];
+        init();
       })
     }
     
     function deleteRace(raceid) {
       return RacesService.deleteRace(raceid)
       .then(function(res) {
-        getRaces();
+        init();
       })
     }
     
     function updateRace(race) {
-      
       return RacesService.updateRace(race)
       .then(function(res) {
-        getRaces();
+        init();
       })
     }
     

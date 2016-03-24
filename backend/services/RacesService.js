@@ -28,7 +28,9 @@ function getRace(raceid, callback) {
 }
 
 function getRaces(callback) {
-  Race.find({}, function(err, races) {
+  Race.find({})
+  .populate('effects')
+  .exec(function(err, races) {
     if (err) return callback(err);
     
     return callback(null, races);

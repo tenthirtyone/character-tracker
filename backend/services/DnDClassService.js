@@ -19,16 +19,25 @@ function getDnDClass(dndclassid, callback) {
     var blankDnDClass = DnDClass();
     return callback(null, blankDnDClass);
   }
-  DnDClass.findOne({_id: dndclassid}, function(err, dndclass){
+  DnDClass.findOne({_id: dndclassid})
+  .populate(
+    'armor weapons tools savingthrows startingskills'
+    )
+  .exec(function(err, dndclass){
     if (err) return callback(err)
-    
+    console.log('populating?');
     return callback(null, dndclass);
    })
+
   
 }
 
 function getDnDClasses(callback) {
-  DnDClass.find({}, function(err, dndclasses) {
+  DnDClass.find({})
+    .populate(
+    'armor weapons tools savingthrows startingskills'
+    )
+  .exec(function(err, dndclasses) {
     if (err) return callback(err);
     
     return callback(null, dndclasses);

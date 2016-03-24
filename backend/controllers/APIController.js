@@ -7,7 +7,7 @@ var CharacterService = require("../services/CharacterService.js");
 var AccountService = require("../services/AccountService.js");
 var AbilityScoreService = require("../services/AbilityScoreService.js");
 var ArmorTypeService = require("../services/ArmorTypeService.js");
-var DnDClassService = require("../services/DnDClassService.js");
+var EffectService = require("../services/EffectService.js");
 var FeatService = require("../services/FeatService.js");
 var GearService = require("../services/GearService.js");
 var InventoryService = require("../services/InventoryService.js");
@@ -16,6 +16,7 @@ var RaceService = require("../services/RacesService.js");
 var SkillService = require("../services/SkillService.js");
 var ToolService = require("../services/ToolService.js");
 var WeaponTypeService = require("../services/WeaponTypeService.js");
+var DnDClassService = require("../services/DnDClassService.js");
 
 module.exports = router;
 
@@ -181,10 +182,48 @@ router.get("/dndclasses", function(req, res) {
   })
 })
 
+router.delete("/effect", function(req, res) {
+  EffectService.removeEffect(req.query.effectid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/effect", function(req, res) {
+  EffectService.getEffect(req.headers.effectid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.post("/effect", function(req, res) {
+  EffectService.addEffect(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.put("/effect", function(req, res) {
+  EffectService.updateEffect(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/effects", function(req, res) {
+  EffectService.getEffects(function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
 
 router.delete("/feat", function(req, res) {
-  console.log('query:');
-  console.log(req.query);
   FeatService.removeFeat(req.query.featid, function(err, result) {
     if (err) return res.status(400).send(err);
   
