@@ -14,7 +14,7 @@
   </thead>
   <tbody>
 
-  <tr ng-repeat="weapontype in weapontypes.weapontypes">
+  <tr ng-repeat="weapontype in weapontypes.weapontypes | orderBy: 'name'">
     <td>
       <input type="text" class="form-control" ng-model="weapontype.name">
     </td>

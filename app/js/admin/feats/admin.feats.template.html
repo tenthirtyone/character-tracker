@@ -18,7 +18,7 @@
   </thead>
   <tbody>
 
-  <tr ng-repeat="feat in feats.feats">
+  <tr ng-repeat="feat in feats.feats | orderBy: 'name'">
     <td>
       <input type="text" class="form-control" ng-model="feat.name">
     </td>

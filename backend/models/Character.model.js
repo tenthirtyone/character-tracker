@@ -17,6 +17,7 @@ var characterSchema = new Schema({
     race: [{ type: Schema.Types.ObjectId, ref: 'Race' }],
     temphp: {type: Number, default: 0},
     maxhp: {type: Number, default: 0},
+    inspiration: {type: Boolean, default: false},
     ac: {type: Number, default: 0},
     init: {type: Number, default: 0},
     proficiency: {type: Number, default: 0},

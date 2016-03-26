@@ -26,7 +26,7 @@
   </thead>
   <tbody>
 
-  <tr ng-repeat="skill in skills.skills">
+  <tr ng-repeat="skill in skills.skills | orderBy: 'name'">
     <td>
       <input type="text" class="form-control" ng-model="skill.name">
     </td>

@@ -5,6 +5,9 @@
     <td>
       <input type="text" class="form-control" ng-model="armortype.name">
     </td>
+    <td>
+      <input type="text" class="form-control" ng-model="armortype.desc">
+    </td>
     <td><a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="armortypes.addArmorType(armortype)">Add New ArmorType</a>
     </td>
   </tr>
@@ -14,10 +17,13 @@
   </thead>
   <tbody>
 
-  <tr ng-repeat="armortype in armortypes.armortypes">
+  <tr ng-repeat="armortype in armortypes.armortypes | orderBy: 'name'">
     <td>{{armortype._id}}</td>
     <td>
       <input type="text" class="form-control" ng-model="armortype.name">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="armortype.desc">
     </td>
     <td>
       <div class="btn-group-vertical">

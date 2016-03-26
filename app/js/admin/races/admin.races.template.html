@@ -12,8 +12,9 @@
       <input type="text" class="form-control" ng-model="race.speed">
     </td>
     <td>
-    
-      <span ng-repeat="effect in race.effects">{{effect.abbr}}; {{effect.value}}; </span>
+      <div>
+        <span ng-repeat="effect in race.effects">{{effect.abbr}}; {{effect.value}}; </span>
+      </div>
       <div class="btn-group">
         <div class="row-action-primary">
           <button class="btn btn-raised btn-default " data-toggle="modal" data-target="#combatModal" ng-click="races.setRace(race);">Effects</i>
@@ -32,7 +33,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="race in races.races">
+  <tr ng-repeat="race in races.races | orderBy: 'name'">
     <td>
       <input type="text" class="form-control" ng-model="race.name">
     </td>
@@ -43,8 +44,9 @@
       <input type="text" class="form-control" ng-model="race.speed">
     </td>
     <td>
-      
+      <div>
        <span ng-repeat="effect in race.effects">{{effect.abbr}}; {{effect.value}}; </span>
+       </div>
       <div class="btn-group">
         <div class="row-action-primary">
           <button class="btn btn-raised btn-default " data-toggle="modal" data-target="#combatModal" ng-click="races.setRace(race);">Effects</i>

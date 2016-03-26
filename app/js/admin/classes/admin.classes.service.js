@@ -32,9 +32,6 @@
     }
     
     function deleteDnDClass(dndclassid) {
-      console.log('#######');
-      console.log('#######');
-      console.log(dndclassid);
       return $http.delete('http://localhost:28469/api/dndclass', {params: {dndclassid: dndclassid}})
         .then(deleteDnDClassComplete)
         .catch(deleteDnDClassFailed);
@@ -48,7 +45,6 @@
             console.log('XHR Failed for deleteDnDClass.' + error.data);
         }      
     }
-    
 
     function updateDnDClass(dndclass) {
         return $http.put('http://localhost:28469/api/dndclass', dndclass)

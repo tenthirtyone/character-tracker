@@ -223,7 +223,6 @@
     }
     
     function updateDnDClass(dndclass) {
-      console.log('wtf')
       return DnDClassService.updateDnDClass(dndclass)
       .then(function(res) {
         init();

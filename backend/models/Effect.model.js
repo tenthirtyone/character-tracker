@@ -2,9 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var effectSchema = new Schema({
-  type: {type: String, default: 'Effect Type'},
-  abbr: {type: String, default: 'STR'},
-  value: {type: Number, default: 0}
+  source: {type: String, default: 'Racial/Item/Spell'},
+  effecttype: {type: String, default: 'ability/hp/ac'},
+  abbr: {type: String, default: 'str'},
+  value: {type: Number, default: 2}
 });
 
 var Effect = mongoose.model('Effect', effectSchema);

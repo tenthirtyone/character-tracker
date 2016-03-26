@@ -5,6 +5,15 @@
     <td>
       <input type="text" class="form-control" ng-model="tool.name">
     </td>
+    <td>
+      <input type="text" class="form-control" ng-model="tool.type">
+    </td>
+    <td>
+      <input type="number" class="form-control" ng-model="tool.cost">
+    </td>
+    <td>
+      <input type="number" class="form-control" ng-model="tool.weight">
+    </td>
     <td><a href="javascript:void(0)" class="btn btn-sm btn-raised btn-default" ng-click="tools.addTool(tool)">Add New Tool</a>
     </td>
   </tr>
@@ -13,9 +22,18 @@
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="tool in tools.tools">
+  <tr ng-repeat="tool in tools.tools | orderBy: 'name'">
     <td>
       <input type="text" class="form-control" ng-model="tool.name">
+    </td>
+    <td>
+      <input type="text" class="form-control" ng-model="tool.type">
+    </td>
+    <td>
+      <input type="number" class="form-control" ng-model="tool.cost">
+    </td>
+    <td>
+      <input type="number" class="form-control" ng-model="tool.weight">
     </td>
     <td>
       <div class="btn-group-vertical">
