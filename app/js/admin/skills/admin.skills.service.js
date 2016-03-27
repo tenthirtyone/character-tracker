@@ -7,7 +7,7 @@
   SkillsService.$inject = ['$http'];
   
   function SkillsService($http) {
-    var APIURL = 'http://localhost:28469/api/skills';
+    var APIURL = 'http://localhost:28469/api/skill';
    
     return {
       addSkill: addSkill,

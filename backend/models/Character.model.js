@@ -11,10 +11,13 @@ var DnDClass = require ('./DnDClass.model.js');
 var Schema = mongoose.Schema;
 
 var characterSchema = new Schema({
-    name: {type: String, default: 'Character Name'},
+    name: {type: String, default: ''},
     race: [{ type: Schema.Types.ObjectId, ref: 'Race' }],
     temphp: {type: Number, default: 0},
     maxhp: {type: Number, default: 0},
+    sex: {type: String, default: ''},
+    height: {type: String, default: 0},
+    weight: {type: String, default: 0},
     inspiration: {type: Boolean, default: false},
     ac: {type: Number, default: 0},
     initiative: {type: Number, default: 0},
@@ -29,11 +32,6 @@ var characterSchema = new Schema({
     tools: [{ type: Schema.Types.ObjectId, ref: 'Tool' }],
     effects: [Effect]
 });
-
-characterSchema.virtual('speed', function(){
-    return this.race.speed;
-})
-
 
 var Character = mongoose.model('Character', characterSchema);
 

@@ -9,10 +9,10 @@ var dndClass = new Schema({
   armor: [{ type: Schema.Types.ObjectId, ref: 'ArmorType' }],
   weapons: [{ type: Schema.Types.ObjectId, ref: 'WeaponType' }],
   tools: [{ type: Schema.Types.ObjectId, ref: 'Tool' }],
-  savingthrows: [{ type: Schema.Types.ObjectId, ref: 'AbilityScore' }],
+  savingthrows: [String],
   skillsCount: {type: Number, default: 0},
-  startingskills:  [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
-  level: {type: Number, default: 0},
+  startingskills:  [String],
+  level: {type: Number, default: 1},
   progression: [{
   	level: {type: String, default: 1}, 
   	hp: {type: Number, default: 0},

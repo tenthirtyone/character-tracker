@@ -55,6 +55,7 @@
       });
       getSaves().then(function() {
         //logging
+
       })
       getSkills().then(function() {
         //logging
@@ -86,8 +87,10 @@
     }
 
     function addSavingThrow(save) {
+      console.log(save)
+      console.log(currentClass.savingthrows)
       for (var i=0; i < currentClass.savingthrows.length; i++) {
-        if (save._id === currentClass.savingthrows[i]._id) {
+        if (save === currentClass.savingthrows[i]) {
           return removeSavingThrow(save);
         }
       }
@@ -96,7 +99,7 @@
 
     function removeSavingThrow(save) {
       for (var i=0; i < currentClass.savingthrows.length; i++) {
-        if (save._id === currentClass.savingthrows[i]._id) {
+        if (save === currentClass.savingthrows[i]) {
           currentClass.savingthrows.splice(i, 1);
         }
       }
@@ -106,7 +109,7 @@
   
     function addSkill(skill) {
       for (var i=0; i < currentClass.startingskills.length; i++) {
-        if (skill._id === currentClass.startingskills[i]._id) {
+        if (skill === currentClass.startingskills[i]) {
           return removeSkill(skill);
         }
       }
@@ -115,7 +118,7 @@
 
     function removeSkill(skill) {
       for (var i=0; i < currentClass.startingskills.length; i++) {
-        if (skill._id === currentClass.startingskills[i]._id) {
+        if (skill === currentClass.startingskills[i]) {
           currentClass.startingskills.splice(i, 1);
         }
       }
@@ -169,7 +172,7 @@
     }
 
     function getSaves() {
-      return AbilityScoresService.getAbilityScoresAbbr()
+      return AbilityScoresService.getAbilityScore()
         .then(function(res) {
           vm.saves = res;
         })

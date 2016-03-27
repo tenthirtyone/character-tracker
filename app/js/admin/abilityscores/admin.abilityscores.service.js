@@ -11,6 +11,7 @@
     return {
       addAbilityScore: addAbilityScore,
       deleteAbilityScore: deleteAbilityScore,
+      getAbilityScore: getAbilityScore,
       getAbilityScores: getAbilityScores,
       getAbilityScoresAbbr: getAbilityScoresAbbr,
       updateAbilityScore: updateAbilityScore
@@ -44,6 +45,20 @@
         }      
     }
     
+    function getAbilityScore() {
+        return $http.get('http://localhost:28469/api/abilityscore')
+            .then(getAbilityScoreComplete)
+            .catch(getAbilityScoreFailed);
+
+        function getAbilityScoreComplete(response) {
+            return response.data;
+        }
+
+        function getAbilityScoreFailed(error) {
+            console.log('XHR Failed for getAbilityScore.' + error.data);
+        }
+    }    
+
     function getAbilityScores() {
         return $http.get('http://localhost:28469/api/abilityscores')
             .then(getAbilityScoresComplete)

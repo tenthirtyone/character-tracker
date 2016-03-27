@@ -44,14 +44,14 @@
         </div>
       </td>
       <td>
-        <span ng-repeat="save in dndclasses.newDnDClass[0].savingthrows">{{save.abbr}}; </span>
+        <span ng-repeat="save in dndclasses.newDnDClass[0].savingthrows">{{save}}; </span>
         <div class="btn-group">
           <a data-target="#" class="btn btn-sm btn-raised btn-default dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Saves
           <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li ng-repeat="save in dndclasses.saves"><a href="javascript:void(0)" ng-click="dndclasses.addSavingThrow(save)"><span ng-show="tool.selected" class="pull-right">X</span>{{save.abbr}}</a></li>
+            <li ng-repeat="(key, save) in dndclasses.saves"><a href="javascript:void(0)" ng-click="dndclasses.addSavingThrow(save.abbreviation)"><span ng-show="tool.selected" class="pull-right">X</span>{{save.abbreviation}}</a></li>
           </ul>
         </div>
       </td>
@@ -59,14 +59,14 @@
         <input type="text" class="form-control" ng-model="dndclass.skillsCount">
       </td>
       <td>
-        <span ng-repeat="skill in dndclasses.newDnDClass[0].startingskills">{{skill.name}}; </span>
+        <span ng-repeat="skill in dndclasses.newDnDClass[0].startingskills">{{skill}}; </span>
         <div class="btn-group">
           <a data-target="#" class="btn btn-sm btn-raised btn-default dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Skills
           <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li ng-repeat="skill in dndclasses.skills"><a href="javascript:void(0)" ng-click="dndclasses.addSkill(skill)"><span ng-show="skill.selected" class="pull-right">X</span>{{skill.name}}</a></li>
+            <li ng-repeat="skill in dndclasses.skills"><a href="javascript:void(0)" ng-click="dndclasses.addSkill(skill.name)"><span ng-show="skill.selected" class="pull-right">X</span>{{skill.name}}</a></li>
           </ul>
         </div>
       </td>
@@ -131,14 +131,14 @@
         </div>
       </td>
       <td>
-        <span ng-repeat="save in dndclass.savingthrows">{{save.abbr}}; </span>
+        <span ng-repeat="save in dndclass.savingthrows">{{save}}; </span>
         <div class="btn-group">
           <a data-target="#" class="btn btn-sm btn-raised btn-default dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Saves
           <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li ng-repeat="save in dndclasses.saves"><a href="javascript:void(0)" ng-click="dndclasses.addSavingThrow(save)"><span ng-show="tool.selected" class="pull-right">X</span>{{save.abbr}}</a></li>
+            <li ng-repeat="(key, save) in dndclasses.saves"><a href="javascript:void(0)" ng-click="dndclasses.addSavingThrow(save.abbreviation)"><span ng-show="tool.selected" class="pull-right">X</span>{{save.abbreviation}}</a></li>
           </ul>
         </div>
       </td>
@@ -146,14 +146,14 @@
         <input type="text" class="form-control" ng-model="dndclass.skillsCount">
       </td>
       <td>
-        <span ng-repeat="skill in dndclass.startingskills">{{skill.name}}; </span>
+        <span ng-repeat="skill in dndclass.startingskills">{{skill}}; </span>
         <div class="btn-group">
           <a data-target="#" class="btn btn-sm btn-raised btn-default dropdown-toggle" data-toggle="dropdown" ng-click="dndclasses.setDnDClass(dndclass)">
           Skills
           <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li ng-repeat="skill in dndclasses.skills"><a href="javascript:void(0)" ng-click="dndclasses.addSkill(skill)"><span ng-show="skill.selected" class="pull-right">X</span>{{skill.name}}</a></li>
+            <li ng-repeat="skill in dndclasses.skills"><a href="javascript:void(0)" ng-click="dndclasses.addSkill(skill.name)"><span ng-show="skill.selected" class="pull-right">X</span>{{skill.name}}</a></li>
           </ul>
         </div>
       </td>

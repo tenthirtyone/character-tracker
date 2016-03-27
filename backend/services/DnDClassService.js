@@ -21,7 +21,7 @@ function getDnDClass(dndclassid, callback) {
   }
   DnDClass.findOne({_id: dndclassid})
   .populate(
-    'armor weapons tools savingthrows startingskills'
+    'armor weapons tools'
     )
   .exec(function(err, dndclass){
     if (err) return callback(err)
@@ -35,7 +35,7 @@ function getDnDClass(dndclassid, callback) {
 function getDnDClasses(callback) {
   DnDClass.find({})
     .populate(
-    'armor weapons tools savingthrows startingskills'
+    'armor weapons tools'
     )
   .exec(function(err, dndclasses) {
     if (err) return callback(err);
