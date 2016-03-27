@@ -12,7 +12,13 @@ var dndClass = new Schema({
   savingthrows: [{ type: Schema.Types.ObjectId, ref: 'AbilityScore' }],
   skillsCount: {type: Number, default: 0},
   startingskills:  [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
-  level: {type: Number, default: 0}
+  level: {type: Number, default: 0},
+  progression: [{
+  	level: {type: String, default: 1}, 
+  	hp: {type: Number, default: 0},
+  	proficiency: {type: Number, default: 2}, 
+  	features: [{type: String, default: 'Class Features'}]
+  }]
 });
 
 var DnDClass = mongoose.model('DnDClass', dndClass);

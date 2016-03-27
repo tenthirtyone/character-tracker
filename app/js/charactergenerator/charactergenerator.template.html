@@ -1,0 +1,187 @@
+<div class="col-md-8 col-md-offset-2">
+	<div class="well">
+     <form class="form-horizontal">
+  <fieldset>
+    <legend>DnD 5e Character Creator</legend>
+    <div class="form-group">
+      <label for="CharacterName" class="col-md-2 control-label">Name</label>
+      <div class="col-md-10">
+        <input type="text" class="form-control" id="CharacterName" placeholder="{{character.template.name}}" ng-model="character.template.name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Race" class="col-md-2 control-label">Race</label>
+      <div class="col-md-10">
+        <div class="btn-group" style="width: 100%;">
+			    <div class="btn-group" style="width: 100%;">
+			      <a href="bootstrap-elements.html" data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" style="width: 100%;">
+			        {{character.template.race.name || 'Race'}}
+			        (
+			        <span ng-repeat="effect in character.template.race.effects">
+			        {{effect.abbr}}: {{effect.value}}
+			        </span>
+			        )
+			        <span class="caret"></span>
+			      </a>
+			      <ul class="dropdown-menu" style="width: 100%;">
+			        <li>
+			        <a href="javascript:void(0)" ng-repeat="race in character.races" ng-click="character.setRace(race)">{{race.name}}   
+			        <span ng-repeat="effect in race.effects" class="pull-right">
+			        {{effect.abbr | uppercase}}: {{effect.value}}; &nbsp;
+			        </span>
+			        </a>
+			        </li>
+			      </ul>
+			    </div>
+      </div>
+    </div>
+ 		<div class="form-group">
+      <label for="Speed" class="col-xs-2 control-label">Speed</label>
+      <div class="col-xs-4">
+        <input type="text" class="form-control" id="Speed" placeholder="{{character.template.race.speed}}" ng-model="character.template.race.speed">
+      </div>
+      <label for="Size" class="col-xs-2 control-label">Size</label>
+      <div class="col-xs-4">
+        <input type="text" class="form-control" id="Size" placeholder="{{character.template.race.size}}" ng-model="character.template.race.size">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <div class="togglebutton">
+          <label>
+            <input type="checkbox" ng-model="character.template.inspiration"> Inspiration
+          </label>
+        </div>
+      </div>
+    </div>	
+    <div class="form-group">
+      <label for="Alignment" class="col-md-2 control-label">Alignment</label>
+      <div class="col-md-10">
+        <div class="btn-group" style="width: 100%;">
+			    <div class="btn-group" style="width: 100%;">
+			      <a href="bootstrap-elements.html" id="Alignment" data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" style="width: 100%;">
+			        {{character.template.alignment.name || 'Alignment'}}
+			        <span class="caret"></span>
+			      </a>
+			      <ul class="dropdown-menu" style="width: 100%;">
+			        <li>
+			        <a href="javascript:void(0)" ng-repeat="alignment in character.alignments | orderBy: 'name'" ng-click="character.setAlignment(alignment)">{{alignment.name}}   			      
+			        </a>
+			        </li>
+			      </ul>
+			    </div>
+      </div>
+    </div>
+    </div>
+		<div class="form-group">
+      <label for="Background" class="col-md-2 control-label">Background</label>
+      <div class="col-md-10">
+        <div class="btn-group" style="width: 100%;">
+			    <div class="btn-group" style="width: 100%;">
+			      <a href="bootstrap-elements.html" id="Background" data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown" style="width: 100%;">
+			        {{character.template.background.name || 'Background'}}
+			        <span class="caret"></span>
+			      </a>
+			      <ul class="dropdown-menu" style="width: 100%;">
+			        <li>
+			        <a href="javascript:void(0)" ng-repeat="background in character.backgrounds | orderBy: 'name'" ng-click="character.setBackground(background)">{{background.name}}   			      
+			        </a>
+			        </li>
+			      </ul>
+			    </div>
+      </div>
+    </div>
+
+
+    </div>
+    <div class="form-group" style="margin-top: 0;"> <!-- inline style is just to demo custom css to put checkbox below input above -->
+      <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Checkbox
+          </label>
+          <label>
+            <input type="checkbox" disabled=""> Disabled Checkbox
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <div class="togglebutton">
+          <label>
+            <input type="checkbox" checked=""> Toggle button
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputFile" class="col-md-2 control-label">File</label>
+
+      <div class="col-md-10">
+        <input type="text" readonly="" class="form-control" placeholder="Browse...">
+        <input type="file" id="inputFile" multiple="">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="textArea" class="col-md-2 control-label">Textarea</label>
+
+      <div class="col-md-10">
+        <textarea class="form-control" rows="3" id="textArea"></textarea>
+        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-2 control-label">Radios</label>
+
+      <div class="col-md-10">
+        <div class="radio radio-primary">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            Option one is this
+          </label>
+        </div>
+        <div class="radio radio-primary">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            Option two can be something else
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="select111" class="col-md-2 control-label">Select</label>
+
+      <div class="col-md-10">
+        <select id="select111" class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="select222" class="col-md-2 control-label">Select Multiple</label>
+
+      <div class="col-md-10">
+        <select id="select222" multiple="" class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-10 col-md-offset-2">
+        <button type="button" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+	</div>
+</div>	

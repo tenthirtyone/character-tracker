@@ -17,6 +17,7 @@ function addAbilityScore(abilityscore, callback) {
 function getAbilityScore(abilityscoreid, callback) {
   if (!abilityscoreid) {
     var blankAbilityScore = AbilityScore();
+    console.log(blankAbilityScore);
     return callback(null, blankAbilityScore);
   }
   AbilityScore.findOne({_id: abilityscoreid}, function(err, abilityscore){

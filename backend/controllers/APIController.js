@@ -3,6 +3,8 @@ var config = require("config");
 var async = require("async");
 var router = express.Router();
 var AuthService = require("../services/AuthService.js");
+var AlignmentService = require("../services/AlignmentService.js");
+var BackgroundService = require("../services/BackgroundService.js");
 var CharacterService = require("../services/CharacterService.js");
 var AccountService = require("../services/AccountService.js");
 var AbilityScoreService = require("../services/AbilityScoreService.js");
@@ -42,8 +44,6 @@ router.post("/createAccount", function(req, res) {
 })
 
 router.delete("/abilityscore", function(req, res) {
-  console.log('query:');
-  console.log(req.query);
   AbilityScoreService.removeAbilityScore(req.query.abilityscoreid, function(err, result) {
     if (err) return res.status(400).send(err);
     
@@ -52,6 +52,7 @@ router.delete("/abilityscore", function(req, res) {
 })
 
 router.get("/abilityscore", function(req, res) {
+  console.log(req.headers.abilityscoreid)
   AbilityScoreService.getAbilityScore(req.headers.abilityscoreid, function(err, result) {
     if (err) return res.status(400).send(err);
     
@@ -90,6 +91,50 @@ router.get("/abilityscoresabbr", function(req, res) {
     res.send(result);
   })
 })
+
+
+
+
+router.delete("/alignment", function(req, res) {
+  AlignmentService.removeAlignment(req.query.alignmentid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/alignment", function(req, res) {
+  AlignmentService.getAlignment(req.headers.alignmentid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.post("/alignment", function(req, res) {
+  AlignmentService.addAlignment(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.put("/alignment", function(req, res) {
+  AlignmentService.updateAlignment(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/alignments", function(req, res) {
+  AlignmentService.getAlignments(function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
 
 
 router.delete("/armortype", function(req, res) {
@@ -132,14 +177,91 @@ router.get("/armortypes", function(req, res) {
   })
 })
 
-router.get("/character", function(req, res) {
-  CharacterService.getCharacter(req.body.characterid, function(err, result) {
-    if (err) {
-      res.status(400).send(err);
-    }
+
+
+
+router.delete("/background", function(req, res) {
+  BackgroundService.removeBackground(req.query.backgroundid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
     res.send(result);
   })
 })
+
+router.get("/background", function(req, res) {
+  BackgroundService.getBackground(req.headers.backgroundid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.post("/background", function(req, res) {
+  BackgroundService.addBackground(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.put("/background", function(req, res) {
+  BackgroundService.updateBackground(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/backgrounds", function(req, res) {
+  BackgroundService.getBackgrounds(function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+
+
+router.delete("/character", function(req, res) {
+  CharacterService.removeCharacter(req.query.characterid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/character", function(req, res) {
+  CharacterService.getCharacter(req.headers.characterid, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.post("/character", function(req, res) {
+  CharacterService.addCharacter(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.put("/character", function(req, res) {
+  CharacterService.updateCharacter(req.body, function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
+router.get("/characters", function(req, res) {
+  CharacterService.getCharacters(function(err, result) {
+    if (err) return res.status(400).send(err);
+    
+    res.send(result);
+  })
+})
+
 
 
 router.delete("/dndclass", function(req, res) {
