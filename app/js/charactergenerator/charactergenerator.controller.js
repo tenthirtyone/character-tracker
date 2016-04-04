@@ -5,6 +5,7 @@
   .controller('CharacterGeneratorController', CharacterGeneratorController);
   
   CharacterGeneratorController.$inject = [
+    'AbilityScoreService',
     'AlignmentService', 
     'BackgroundService', 
     'CharacterService', 
@@ -12,7 +13,7 @@
     'RaceService'
     ];
   
-  function CharacterGeneratorController(AlignmentService, BackgroundService, CharacterService, DnDClassService, RaceService) {
+  function CharacterGeneratorController(AbilityScoreService, AlignmentService, BackgroundService, CharacterService, DnDClassService, RaceService) {
     var vm = this;
     vm.alignments = [];
     vm.backgrounds = [];
@@ -50,6 +51,10 @@
       getTemplate().then(function() {
         //logging
       })
+
+      getAbilityScores().then(function() {
+
+      })
     }
     
     function addClass(newClass) {
@@ -63,6 +68,13 @@
         }
       }
       classes.push(newClass);
+    }
+
+    function getAbilityScores() {
+      return AbilityScoreService.getAbilityScores()
+        .then(function(res) {
+          vm.template.abilityscores = res;
+        })
     }
 
     function getAlignments() {
